@@ -1,0 +1,24 @@
+.mainContent{
+    margin: 100px;
+}
+.mainContent section{
+    padding: 24px;
+    background-color: var(--grey-300);
+}
+ul{
+    margin: 24px auto;
+}
+ul img{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+ul li{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+}
+.btn-width-full{
+    width: 100%;
+}
