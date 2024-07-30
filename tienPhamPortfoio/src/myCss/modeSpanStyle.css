@@ -1,14 +1,58 @@
 #modeButton{
-    display: flex;
-    justify-content: space-between  ;
-    align-items: center;
-    padding: 6px 8px;
-    background-color: #e5e7eb;
-    width: 68px;
+    background-color: rgba(0,0,0,0.07);
     border-radius: 50px;
-
-    transition: all 0.5s;
+    position: relative;
+    height: 28px;
+    width: 60px;
+    z-index: 10;
 }
+#modeButton div:first-child{
+    position: absolute;
+    top: 0;
+    left: -50%;
+    
+
+    transition: all 0.5s ;
+}
+
+/* #modeButton div:last-child{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 2;
+    display: none;
+} */
+#modeButton div:hover{
+    left: 0;
+}
+#modeButton div svg:first-of-type{
+    opacity: 0;
+    transition: all 0.3s;
+    transform: scale(0);
+    z-index: -10;
+}
+#modeButton div:hover svg:first-of-type{
+    opacity: 1;
+    transform: scale(1);
+}
+#modeButton div:hover svg:last-of-type{
+    opacity: 0;
+    transition: all 0.3s;
+    transform: scale(0);
+    z-index: -10;
+}
+#modeButton div{
+    position: absolute;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    
+    width: 150%;
+    height: 100%;
+}
+/* #modeButton div:last-child{
+    display: none;
+} */
 #modeButton svg{
     height: 20px;
     width: 20px;
@@ -17,8 +61,7 @@
 #modeButton:hover{
     box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.2) ,-1px -1px 4px 1px rgba(0,0,0,0.2);
 }
-#modeSpanStyle{
-    padding: 4px;
+#modeButton span{
     background-color:white;
     height: 20px;
     width: 20px;
