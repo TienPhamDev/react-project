@@ -1,0 +1,27 @@
+#modeButton{
+    display: flex;
+    justify-content: space-between  ;
+    align-items: center;
+    padding: 6px 8px;
+    background-color: #e5e7eb;
+    width: 68px;
+    border-radius: 50px;
+
+    transition: all 0.5s;
+}
+#modeButton svg{
+    height: 20px;
+    width: 20px;
+    color: #0e7490;
+}
+#modeButton:hover{
+    box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.2) ,-1px -1px 4px 1px rgba(0,0,0,0.2);
+}
+#modeSpanStyle{
+    padding: 4px;
+    background-color:white;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #d1d5db;
+}
