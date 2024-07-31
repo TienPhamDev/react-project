@@ -5,37 +5,20 @@
     height: 28px;
     width: 60px;
     z-index: 10;
+
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    
 }
-#modeButton div:first-child{
+#modeButton svg:first-child{
     position: absolute;
     top: 0;
     left: -50%;
-    
-
     transition: all 0.5s ;
 }
 
-/* #modeButton div:last-child{
-    position: absolute;
-    top: 0;
-    left: 100%;
-    z-index: 2;
-    display: none;
-} */
-#modeButton div:hover{
-    left: 0;
-}
-#modeButton div svg:first-of-type{
-    opacity: 0;
-    transition: all 0.3s;
-    transform: scale(0);
-    z-index: -10;
-}
-#modeButton div:hover svg:first-of-type{
-    opacity: 1;
-    transform: scale(1);
-}
-#modeButton div:hover svg:last-of-type{
+#modeButton svg:first-of-type{
     opacity: 0;
     transition: all 0.3s;
     transform: scale(0);
@@ -50,9 +33,6 @@
     width: 150%;
     height: 100%;
 }
-/* #modeButton div:last-child{
-    display: none;
-} */
 #modeButton svg{
     height: 20px;
     width: 20px;
