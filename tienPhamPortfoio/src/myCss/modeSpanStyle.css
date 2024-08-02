@@ -2,6 +2,7 @@
     --color-slate-900:#0f172a;
     --color-slate-200:#e2e8f0;
     --color-teal-900:#134e4a;
+    --color-slate-100:#f1f5f9;
 }
 #modeButton{
     background-color:var(--color-slate-200);
@@ -11,9 +12,7 @@
     width: 60px;
     z-index: 10;
     perspective: 500px;
-    transition: all 0.3s;
-    
-    
+    transition: all 0.3s;    
 }
 #modeButton svg:first-child{
     position: absolute;
