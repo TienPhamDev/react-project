@@ -1,37 +1,42 @@
+:root{
+    --color-slate-900:#0f172a;
+    --color-slate-200:#e2e8f0;
+    --color-teal-900:#134e4a;
+}
 #modeButton{
-    background-color: rgba(0,0,0,0.07);
+    background-color:var(--color-slate-200);
     border-radius: 50px;
     position: relative;
     height: 28px;
     width: 60px;
     z-index: 10;
-
-    display: flex;
-    justify-content:space-around;
-    align-items: center;
+    perspective: 500px;
+    transition: all 0.3s;
+    
     
 }
 #modeButton svg:first-child{
     position: absolute;
-    top: 0;
-    left: -50%;
-    transition: all 0.5s ;
-}
-
-#modeButton svg:first-of-type{
+    top: 50%;
+    left: 5%;
+    transition: all 0.3s ;
+    transform: translate(-50%,-50%);
     opacity: 0;
-    transition: all 0.3s;
-    transform: scale(0);
-    z-index: -10;
 }
-#modeButton div{
+#modeButton svg:last-child{
     position: absolute;
-    display: flex;
-    justify-content:space-around;
-    align-items: center;
-    
-    width: 150%;
-    height: 100%;
+    top: 50%;
+    right: 25%;
+    transform: translate(50%,-50%);
+    transition: all 0.3s ;
+    opacity: 1;
+}
+#modeButton span{
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%,-50%);
+    transition: all 0.3s;
 }
 #modeButton svg{
     height: 20px;
@@ -39,7 +44,7 @@
     color: #0e7490;
 }
 #modeButton:hover{
-    box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.2) ,-1px -1px 4px 1px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2) ,-1px -1px 2px 1px rgba(0,0,0,0.2);
 }
 #modeButton span{
     background-color:white;
