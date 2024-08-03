@@ -11,13 +11,21 @@ function Header(){
   const styleLogo = "text-cyan-700 font-bold md:order-first"
 
   //state 
-  const [mode,setMode] = useState(false)
+  const [theme,setTheme] = useState("light")
   const [menuIsOpen,setMenuIsOpen] = useState(false)
   // dark mode toggle button
-  function handleMode(){
-    setMode(!mode)
+  function handleTheme(){
+    setTheme(theme === "dark" ? "light" : "dark")
     const modeButton = document.querySelector("#modeButton")
-    if (!mode){
+    if(theme === "dark"){
+      modeButton.style.backgroundColor = "var(--color-slate-200)"
+      modeButton.firstElementChild.style.opacity = "0";
+      modeButton.firstElementChild.style.left = "5%";
+      modeButton.children[1].style.left = "25%";
+      modeButton.lastElementChild.style.right = "25%";
+      modeButton.lastElementChild.style.opacity = "1";
+    }   
+    if (theme === "light"){
       modeButton.style.backgroundColor = "var(--color-slate-900)"
       modeButton.lastElementChild.style.opacity = "0";
       modeButton.lastElementChild.style.right = "5%";
@@ -25,22 +33,13 @@ function Header(){
       modeButton.firstElementChild.style.left = "25%";
       modeButton.firstElementChild.style.opacity = "1";
     }
-    if(mode){
-      modeButton.style.backgroundColor = "var(--color-slate-200)"
-      modeButton.firstElementChild.style.opacity = "0";
-      modeButton.firstElementChild.style.left = "5%";
-      modeButton.children[1].style.left = "25%";
-      modeButton.lastElementChild.style.right = "25%";
-      modeButton.lastElementChild.style.opacity = "1";
-    } 
-    
   }
   function handleMenuIsOpen(){
     setMenuIsOpen(!menuIsOpen)
   }
   return <header className={styleHeaderEl}>
     <a className={styleLogo} href="#"><span>{"< TPDev />"}</span></a>
-    <button id="modeButton" onClick={handleMode} className="md:order-last ">  
+    <button id="modeButton" onClick={handleTheme} className="md:order-last ">  
         <svg   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
             className="size-6">
           <path fillRule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clipRule="evenodd" />
