@@ -8,9 +8,14 @@
     height: 100vh;
     padding-top: 64px;
     padding-bottom: 24px;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+    opacity: 0;
+
+    transition: all 0.5s;
 }
+/* nav svg{
+    color:#0891b2;
+} */
 #menu li {
     text-align: center;
     font-size: 44px;
@@ -36,11 +41,14 @@
         padding: 0;
         margin: 0;
         position:unset;
-        height: auto;
-        background-color: var(--color-slate-100);
+        height: auto;   
+        visibility: visible; 
+        opacity: 1;
+
     }
     #menu li{
         margin-top: 0;
         font-size: x-large;
     }
+
  }

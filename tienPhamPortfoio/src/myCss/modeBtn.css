@@ -1,8 +1,9 @@
 :root{
-    --color-slate-900:#0f172a;
+    --color-slate-700:#334155;
     --color-slate-200:#e2e8f0;
     --color-teal-900:#134e4a;
     --color-slate-100:#f1f5f9;
+    --color-cyan-600:#06b6d4;
 }
 #modeButton{
     background-color:var(--color-slate-200);
@@ -40,13 +41,13 @@
 #modeButton svg{
     height: 20px;
     width: 20px;
-    color: #0e7490;
+    color:#0891b2;
 }
 #modeButton:hover{
     box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2) ,-1px -1px 2px 1px rgba(0,0,0,0.2);
 }
 #modeButton span{
-    background-color:white;
+    background-color:var(--color-slate-100);
     height: 20px;
     width: 20px;
     border-radius: 50%;
