@@ -1,7 +1,7 @@
-import tienAvatar from "../assets/tien.jpg";
-
+import tienAvatar from "../assets/avatar.jpg";
+import heroBackgournd from "../assets/background.png";
 export const SectionHero = () => {
-  const styleSectionHero = "h-[100vh] flex flex-col justify-start items-center gap-8 pt-12 dark:bg-red-900 px-4";
+  const styleSectionHero = `bg-[url('${heroBackgournd}')] h-[100vh] flex flex-col justify-start items-center gap-8 pt-12 dark:bg-red-900 px-4`;
   const styleDivImg = "relative after:content-[''] after:left-[8%] after:rounded-2xl after:border-4 after:border-cyan-900 after:w-full after:h-full after:z-[-99] after:bottom-[-8%] after:absolute ";
   const styleImg = "h-40 w-40 rounded-2xl border-4 border-cyan-600";
   const styleH1 = "text-5xl text-slate-800 text-center leading-tight tracking-wide";
