@@ -1,0 +1,8 @@
+.bg-image-gradient {
+    @apply bg-cover bg-center w-full h-full;
+    z-index: -9999;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+      url('../assets/hero-img.jpg');
+  }
+  

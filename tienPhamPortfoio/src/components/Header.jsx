@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export function Header({ toggleTheme }) {
-  const styleHeaderEl = "container dark:text-slate-100 lg:px-52 dark:bg-black w-full bg-slate-100 z-10 flex items-center justify-between px-2 py-4 shadow-lg";
+  const styleHeaderEl = "fixed top-0 dark:text-slate-100 lg:px-52 dark:bg-black w-full bg-[rgba(255,255,255,0.6)] z-10 flex items-center justify-between px-2 py-4 shadow-lg";
   const styleLogo = "text-cyan-600 font-bold md:order-first";
 
   //state 
