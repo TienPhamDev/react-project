@@ -1,15 +1,15 @@
 import tienAvatar from "../assets/avatar.jpg";
 import "../myCss/bg-img-gradient.css"
 
-export const SectionHero = () => {
-  const styleSectionHero = `bg-image-gradient h-full flex flex-col justify-start items-center gap-8 pt-20 dark:bg-red-900 px-4`;
-  const styleDivImg = "relative after:content-[''] after:left-[8%] after:rounded-2xl after:border-4 after:border-cyan-900 after:w-full after:h-full after:-z-10 after:bottom-[-8%] after:absolute ";
-  const styleImg = "h-40 w-40 rounded-2xl border-4 border-cyan-600 z-30 ";
-  const styleH1 = "text-5xl text-slate-800 text-center leading-tight tracking-wide";
+export const SectionHero = ({theme}) => {
+  const styleSectionHero = theme === "dark" ? "dark-bg-image-gradient" : "bg-image-gradient"
+  const styleDivImg = "relative after:content-[''] after:left-[8%] after:rounded-2xl after:border-b-4 dark:after:border-cyan-600 after:border-r-4 after:border-cyan-900 after:w-full after:h-full after:bottom-[-8%] after:absolute ";
+  const styleImg = "z-10 h-40 w-40 rounded-2xl border-4 dark:border-cyan-300 border-cyan-600";
+  const styleH1 = "dark:text-slate-100 text-5xl text-slate-800 text-center leading-tight tracking-wide";
   const styleHello = "text-6xl text-inherit font-bold bg-inherit";
   const styleNameMark = "bg-inherit text-cyan-600 font-bold";
-  const styleP = "text-center text-lg mt-4 tracking-wide text-slate-600";
-  const styleLocationText = "bg-inherit font-semibold text-slate-800"
+  const styleP = "dark:text-slate-100 text-center text-lg mt-4 tracking-wide text-slate-600";
+  const styleLocationText = "dark:text-slate-200 bg-inherit font-semibold text-slate-800"
   const styleArrowDownSVG = "size-10"
   const styleDivArrow = "relative gap-0 mb-8"
   return <section id="hero" className={styleSectionHero}>

@@ -34,7 +34,7 @@ function App() {
   },[theme])
   return (<div className="flex flex-col">
     <Header toggleTheme={handleTheme}/>
-    <MainPage />
+    <MainPage theme={theme}/>
     
   </div>
   )

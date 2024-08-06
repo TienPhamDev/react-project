@@ -1,8 +1,12 @@
 .bg-image-gradient {
-    @apply bg-cover bg-center w-full h-full;
-    z-index: -9999;
+    @apply bg-cover bg-center w-full h-full flex flex-col justify-start items-center gap-8 pt-20 px-4;
     background-image: 
       linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
       url('../assets/hero-img.jpg');
   }
-  
+  .dark-bg-image-gradient{
+    @apply bg-cover bg-center w-full h-full flex flex-col justify-start items-center gap-8 pt-20 px-4;
+    background-image: 
+      linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.5)),
+      url('../assets/hero-img.jpg');
+  }

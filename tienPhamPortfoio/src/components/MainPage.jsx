@@ -1,8 +1,8 @@
 import { SectionHero } from "./SectionHero";
-export const MainPage = () => {
+export const MainPage = ({theme}) => {
   return (
     <main>
-      <SectionHero />
+      <SectionHero theme={theme}/>
     </main>
   )
   
