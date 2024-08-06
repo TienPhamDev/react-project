@@ -4,6 +4,7 @@
     --color-teal-900:#134e4a;
     --color-slate-100:#f1f5f9;
     --color-cyan-600:#06b6d4;
+    --color-react-icon:#00D8FF;
 }
 #modeButton{
     background-color:var(--color-slate-200);
