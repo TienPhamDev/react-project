@@ -11,7 +11,7 @@ export const SectionHero = ({theme}) => {
   const styleP = "dark:text-slate-100 text-center text-lg mt-4 tracking-wide text-slate-600";
   const styleLocationText = "dark:text-slate-200 bg-inherit font-semibold text-slate-800"
   const styleArrowDownSVG = "size-10"
-  const styleDivArrow = "relative gap-0 mb-8"
+  const styleDivArrow = "relative gap-0 mb-12"
   return <section id="hero" className={styleSectionHero}>
     <div className={styleDivImg}>
       <img src={tienAvatar} alt="Tien avatar" className={styleImg} />

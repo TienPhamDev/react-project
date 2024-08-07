@@ -1,0 +1,9 @@
+.expertiseSection{
+    @apply dark:bg-[rgba(0,0,0,1)] py-10;
+}
+.expertiseH2{
+    @apply dark:text-slate-100 font-bold text-center text-5xl text-slate-900 mb-20;
+}
+.expertiseP{
+    @apply text-slate-600 dark:text-slate-300 text-center px-6 font-medium tracking-wide;
+}
