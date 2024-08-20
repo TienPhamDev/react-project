@@ -9,3 +9,10 @@ export const MainPage = ({theme}) => {
   )
 };
 
+const SectionProjects = () => {
+  return (
+    <section>
+      
+    </section>
+  )
+}
