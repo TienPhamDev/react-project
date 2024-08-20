@@ -1,5 +1,5 @@
 import tienAvatar from "../assets/avatar.jpg";
-import "../myCss/bg-img-gradient.css"
+import "../myCss/sectionHero.css"
 
 export const SectionHero = ({theme}) => {
   const styleSectionHero = theme === "dark" ? "dark-bg-image-gradient" : "bg-image-gradient"
@@ -12,7 +12,7 @@ export const SectionHero = ({theme}) => {
   const styleLocationText = "dark:text-slate-200 bg-inherit font-semibold text-slate-800"
   const styleArrowDownSVG = "size-10"
   const styleDivArrow = "relative gap-0 mb-12"
-  return <section id="hero" className={styleSectionHero}>
+  return <section id="hero" className={`sectionHero ${styleSectionHero}`}>
     <div className={styleDivImg}>
       <img src={tienAvatar} alt="Tien avatar" className={styleImg} />
     </div>

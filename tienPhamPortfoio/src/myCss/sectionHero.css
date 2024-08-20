@@ -10,3 +10,6 @@
       linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 1)),
       url('../assets/hero-img.jpg');
   }
+  .sectionHero::after{
+    @apply content-[""] h-[2px] w-72 bg-slate-200;
+  }
