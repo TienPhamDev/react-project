@@ -18,7 +18,7 @@
     @apply text-3xl font-bold text-center px-4 dark:text-slate-100;
 }
 .epxertiseTableSkill{
-    @apply grid grid-cols-2 container mx-auto dark:text-slate-100 justify-center content-center items-start w-3/4  md:w-1/2 gap-2 my-10;
+    @apply grid grid-cols-2 place-content-center mx-auto dark:text-slate-100 justify-center content-center items-start w-3/4  md:w-1/2 gap-2 my-10;
 }
 .epxertiseTableSkill h5{
     @apply font-bold h-full dark:text-slate-100 ;
