@@ -8,7 +8,7 @@ export const SectionHero = ({theme}) => {
   const styleH1 = "dark:text-slate-100 text-5xl text-slate-800 text-center leading-tight tracking-wide";
   const styleHello = "text-6xl text-inherit font-bold bg-inherit";
   const styleNameMark = "bg-inherit text-cyan-600 font-bold";
-  const styleP = "dark:text-slate-100 text-center text-lg mt-4 tracking-wide text-slate-600";
+  const styleP = "p-4 dark:text-slate-100 text-center text-lg mt-4 tracking-wide text-slate-600";
   const styleLocationText = "dark:text-slate-200 bg-inherit font-semibold text-slate-800"
   const styleArrowDownSVG = "size-10"
   const styleDivArrow = "relative gap-0 mb-12"
