@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export function Header({ toggleTheme }) {
-  const styleHeaderEl = "fixed top-0 dark:text-slate-100 lg:px-52 dark:bg-black w-full bg-[rgba(255,255,255,0.6)] z-10 flex items-center justify-between px-2 py-4 shadow-lg";
+  const styleHeaderEl = "fixed top-0 dark:text-slate-100 lg:px-52 dark:bg-[rgba(0,0,0,0.8)] w-full bg-[rgba(255,255,255,0.9)] z-10 flex items-center justify-between px-8 py-4 shadow-lg";
   const styleLogo = "text-cyan-600 font-bold md:order-first";
 
   //state 
@@ -25,11 +25,13 @@ export function Header({ toggleTheme }) {
       navMenu.style.visibility = "visible";
       navMenu.style.opacity = "1";
       navMenu.style.zIndex = "10";
+      document.body.classList.add("overflow-hidden");
     }
     if (menuIsOpen) {
       navMenu.style.visibility = "hidden";
       navMenu.style.opacity = "0";
       navMenu.style.zIndex = "-10";
+      document.body.classList.remove("overflow-hidden");
     }
   }
   return <header className={styleHeaderEl}>
@@ -58,7 +60,7 @@ export function Header({ toggleTheme }) {
             <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
           </svg>}
       </button>
-      <ul className="dark:bg-[rgba(0,0,0,0.8)]" id="menu">
+      <ul className="dark:bg-[rgba(0,0,0,0.85)] bg-[rgba(255,255,255,0.85)]" id="menu">
         <li><a href="#">Home</a></li>
         <li><a href="#">Portfolio</a></li>
         <li><a href="#">Blog</a></li>
