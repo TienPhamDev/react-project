@@ -60,7 +60,7 @@ export function Header({ toggleTheme }) {
             <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
           </svg>}
       </button>
-      <ul className="dark:bg-[rgba(0,0,0,0.85)] bg-[rgba(255,255,255,0.85)]" id="menu">
+      <ul className="dark:bg-[rgba(0,0,0,0.85)] bg-[rgba(255,255,255,0.85)] md:dark:bg-transparent md:bg-transparent" id="menu">
         <li><a href="#">Home</a></li>
         <li><a href="#">Portfolio</a></li>
         <li><a href="#">Blog</a></li>
