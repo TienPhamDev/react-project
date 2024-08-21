@@ -1,5 +1,5 @@
 .expertiseSection{
-    @apply relative dark:bg-black py-10;
+    @apply relative dark:bg-black py-16;
 }
 .expertiseSection::after{
     @apply absolute bottom-0 left-[50%] translate-x-[-50%] content-[""] w-72 h-[2px] bg-slate-200;
