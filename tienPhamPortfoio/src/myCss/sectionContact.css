@@ -1,0 +1,23 @@
+.sectionContact{
+    @apply dark:bg-black py-16 flex flex-col items-center;
+}
+.sectionContact h2{
+    @apply relative text-center mb-10 font-bold text-5xl text-slate-900;
+}
+.sectionContact h2::after{
+    @apply absolute content-[""] h-[4px] w-56 bottom-[-25%] left-[50%] translate-x-[-50%] bg-cyan-600;
+}
+.sectionContact p {
+    @apply mx-4 text-slate-900 dark:text-slate-100 text-center font-medium text-lg;
+}
+.sectionContact form{
+    @apply flex flex-col gap-6 justify-center items-center w-[90%] my-8;
+}
+.sectionContact form input[type="text"],
+.sectionContact form input[type="email"],
+.sectionContact form textarea{
+    @apply w-full outline-none p-4 bg-gray-200 rounded-lg;
+}
+.sectionContact form textarea{
+    @apply h-40;
+}
