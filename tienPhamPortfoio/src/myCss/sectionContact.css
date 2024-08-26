@@ -2,10 +2,10 @@
     @apply dark:bg-black py-16 flex flex-col items-center;
 }
 .sectionContact h2{
-    @apply relative text-center mb-10 font-bold text-5xl text-slate-900;
+    @apply relative dark:text-slate-100 text-center mb-10 font-bold text-5xl text-slate-900;
 }
 .sectionContact h2::after{
-    @apply absolute content-[""] h-[4px] w-56 bottom-[-25%] left-[50%] translate-x-[-50%] bg-cyan-600;
+    @apply absolute content-[""] h-[4px] w-56 bottom-[-20%] left-[50%] translate-x-[-50%] bg-cyan-600;
 }
 .sectionContact p {
     @apply mx-4 text-slate-900 dark:text-slate-100 text-center font-medium text-lg;
@@ -20,4 +20,10 @@
 }
 .sectionContact form textarea{
     @apply h-40;
+}
+.sectionContact form button{
+    @apply transition-all duration-[0.5s] py-4 px-2 w-full rounded-lg text-slate-100 bg-cyan-600 font-medium ;
+}
+.sectionContact form button:hover{
+    @apply bg-cyan-500;
 }

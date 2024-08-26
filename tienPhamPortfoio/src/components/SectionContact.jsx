@@ -12,7 +12,7 @@ export const SectionContact = () => {
       <form>
         <input type="text" id="name" placeholder="Name" />
         <input type="email" id="email" placeholder="Email" />
-        <textarea name="message" id="message">Your message</textarea>
+        <textarea name="message" id="message" placeholder="Your message"></textarea>
         <button type="submit">Send</button>
       </form>
     </section>

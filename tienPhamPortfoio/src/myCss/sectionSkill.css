@@ -6,7 +6,7 @@
 }
 .expertiseH2{
     @apply relative dark:text-slate-100 font-bold text-center text-5xl text-slate-900 mb-12 w-full;
-    @apply after:bg-cyan-600  after:bottom-[-25%] after:translate-x-[-50%] after:left-[50%] after:absolute after:content-[""] after:w-48 after:h-[4px];
+    @apply after:bg-cyan-600  after:bottom-[-20%] after:translate-x-[-50%] after:left-[50%] after:absolute after:content-[""] after:w-48 after:h-[4px];
 }
 .expertiseP{
     @apply text-slate-600 dark:text-slate-300 text-center md:px-64 px-6 font-medium tracking-wide;
