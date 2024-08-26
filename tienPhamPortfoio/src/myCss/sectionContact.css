@@ -8,7 +8,7 @@
     @apply absolute content-[""] h-[4px] w-56 bottom-[-20%] left-[50%] translate-x-[-50%] bg-cyan-600;
 }
 .sectionContact p {
-    @apply mx-4 text-slate-900 dark:text-slate-100 text-center font-medium text-lg;
+    @apply mx-4 text-slate-700 dark:text-slate-200 text-center font-medium text-lg;
 }
 .sectionContact form{
     @apply flex flex-col gap-6 justify-center items-center w-[90%] my-8;
@@ -16,7 +16,7 @@
 .sectionContact form input[type="text"],
 .sectionContact form input[type="email"],
 .sectionContact form textarea{
-    @apply w-full outline-none p-4 bg-gray-200 rounded-lg;
+    @apply text-slate-900 w-full outline-none p-4 bg-gray-200 rounded-lg;
 }
 .sectionContact form textarea{
     @apply h-40;
