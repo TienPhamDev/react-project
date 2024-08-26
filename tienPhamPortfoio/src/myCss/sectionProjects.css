@@ -1,7 +1,7 @@
 .sectionProjects{
     @apply flex relative flex-col w-full items-center gap-12 bg-white dark:text-slate-100 text-slate-900 py-16 dark:bg-black;
 }
-.sectionPorjects::after{
+.sectionProjects::after{
     @apply absolute bottom-0 left-[50%] translate-x-[-50%] content-[""] w-72 h-[2px] bg-slate-200;
 }
 .sectionProjects h2{

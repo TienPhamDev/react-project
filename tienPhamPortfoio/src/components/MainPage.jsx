@@ -7,6 +7,7 @@ export const MainPage = ({theme}) => {
       <SectionHero theme={theme}/>
       <SectionSkill />
       <SectionProjects />
+      <SectionContact/>
     </main>
   )
 };
