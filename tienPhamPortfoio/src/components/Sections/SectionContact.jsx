@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../myCss/sectionContact.css"
+import "./css/sectionContact.css"
 
 export const SectionContact = () => {
   const[name,setName]= useState("")

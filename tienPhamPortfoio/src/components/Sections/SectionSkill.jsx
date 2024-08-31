@@ -1,4 +1,4 @@
-import "../myCss/sectionSkill.css"
+import "./css/sectionSkill.css";
 
 export const SectionSkill = () => {
   return (

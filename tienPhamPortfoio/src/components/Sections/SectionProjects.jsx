@@ -1,4 +1,4 @@
-import "../myCss/sectionProjects.css"
+import "./css/sectionProjects.css"
 
 
 export const SectionProjects = () => {

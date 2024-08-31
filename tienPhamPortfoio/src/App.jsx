@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import "./myCss/menu.css"
-import "./myCss/modeBtn.css"
+import "./CSS/menu.css"
+import "./CSS/modeBtn.css"
 import { Header } from "./components/Header"
 import { MainPage } from "./components/MainPage"
 function App() {

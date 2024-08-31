@@ -1,5 +1,5 @@
-import tienAvatar from "../assets/avatar.jpg";
-import "../myCss/sectionHero.css"
+import tienAvatar from "/src/assets/avatar.jpg";
+import "./css/sectionHero.css"
 
 export const SectionHero = ({theme}) => {
   const styleSectionHero = theme === "dark" ? "dark-bg-image-gradient" : "bg-image-gradient"

@@ -1,14 +1,11 @@
-import { SectionHero } from "./SectionHero";
-import { SectionSkill } from "./SectionSkill";
-import { SectionProjects } from "./SectionProjects";
-import { SectionContact } from "./SectionContact";
+import { Hero,Contact,Skills,Projects } from "./Sections";
 export const MainPage = ({theme}) => {
   return (
     <main>
-      <SectionHero theme={theme}/>
-      <SectionSkill />
-      <SectionProjects />
-      <SectionContact/>
+      <Hero theme={theme}/>
+      <Skills />
+      <Projects />
+      <Contact/>
     </main>
   )
 };
