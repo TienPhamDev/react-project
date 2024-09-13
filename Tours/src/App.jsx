@@ -12,9 +12,9 @@ const App = () => {
     try {
       const res = await fetch(url)
       const data = await res.json();
-      console.log(data);
+      setToursData(data)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
     setIsLoading(false)
   }
@@ -24,7 +24,7 @@ const App = () => {
   return (
     <main>
       <h2>Our Tours</h2>
-      <Tours/>
+      <Tours tours = {toursData}/>
     </main>
   )
 };
