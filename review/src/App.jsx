@@ -48,3 +48,13 @@ const App = () => {
   </main>
 };
 export default App;
+// what i have learned in this project is
+// 1. About modulo operator
+// the modulo operation is the remainder when dividing.
+// The modulo operator help me to set range of the array "reviews". Its help me to not get out of range of the array "reviews".
+// 2. About react-icons 
+// how to install react icons?
+// npm install react-icons --save
+// 3. About Math.random() and Math.floor in javascript
+// Math.random() help me to generate a random number 
+// Math.floor() help me to rounds a number down to nearest integer.
