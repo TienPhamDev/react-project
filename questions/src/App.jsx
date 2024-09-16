@@ -1,4 +1,10 @@
+import questions from "./data";
+import Questions from "./Questions";
 const App = () => {
-  return <h2>Accordion Starter</h2>;
+  return <main>
+    <Questions questions={questions}/>
+  </main> 
+  
 };
+
 export default App;
