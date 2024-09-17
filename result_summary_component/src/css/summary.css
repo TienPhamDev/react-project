@@ -1,0 +1,49 @@
+.summary{
+    padding: 24px;
+}
+ul{
+    padding: 12px 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.summary h2{
+    color: hsl(224, 30%, 27%);
+    font-size: 16px;
+}
+li{
+    list-style: none;
+    padding: 12px 6px;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+}
+li .nameItem{
+    width: 70%;
+}
+.scoreItem{
+    color: hsl(224, 30%, 27%);
+    font-weight: bold;
+}
+.scoreItem2{
+    color: hsl(241, 100%, 89%);
+}
+li:first-child{
+    background-color: hsla(0, 100%, 67%,0.2);
+    color: hsl(0, 100%, 67%);
+}
+li:nth-child(2){
+    background-color: hsla(39, 100%, 56%,0.2);
+    color: hsl(39, 100%, 56%);
+}
+li:nth-child(3){
+    background-color: hsla(166, 100%, 37%,0.2);
+    color: hsl(166, 100%, 37%);
+}
+li:last-child{
+    background-color: hsla(234, 85%, 45%,0.2);
+    color: hsl(234, 85%, 45%);
+}
