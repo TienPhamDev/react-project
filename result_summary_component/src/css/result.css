@@ -20,6 +20,8 @@
 .result > p{
     padding: 0 36px;
     text-align: center;
+    font-size: 14px;
+    color: hsl(241, 100%, 89%);
 }
 .result .score-container{
     margin: 12px;

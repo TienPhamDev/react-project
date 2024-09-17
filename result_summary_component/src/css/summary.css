@@ -47,3 +47,12 @@ li:last-child{
     background-color: hsla(234, 85%, 45%,0.2);
     color: hsl(234, 85%, 45%);
 }
+.btn{
+    width: 100%;
+    padding: 12px 0px;
+    border-radius: 25px;
+    font-weight: bold;
+    background-color: hsl(224, 30%, 27%);
+    color: hsl(0, 0%, 100%);
+    outline: none;
+}

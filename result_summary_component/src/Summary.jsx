@@ -19,5 +19,6 @@ export const Summary = () => {
         })
       }
     </ul>
+    <button className="btn">Continue</button>
   </div>;
 };
