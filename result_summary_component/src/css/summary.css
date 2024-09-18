@@ -1,5 +1,5 @@
 .summary{
-    padding: 24px;
+    padding:24px;
 }
 ul{
     padding: 12px 0px;
@@ -55,4 +55,15 @@ li:last-child{
     background-color: hsl(224, 30%, 27%);
     color: hsl(0, 0%, 100%);
     outline: none;
+}
+@media  screen and (min-width:768px) {
+    .summry h2{
+        font-size: 24px;
+    }
+    .summary{
+        width: 50%;
+        padding: 8px 32px;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
 }

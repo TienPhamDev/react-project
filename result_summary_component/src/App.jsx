@@ -7,8 +7,10 @@ function App() {
 
   return (
     <main>
-      <Result/>
-      <Summary/>
+      <div className='container'>
+        <Result/>
+        <Summary/>
+      </div>
     </main>
   )
 }

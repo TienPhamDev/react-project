@@ -44,3 +44,10 @@
     font-size: 44px;
     font-weight: bold;
 }
+@media  screen and (min-width:768px) {
+    .result{
+        width: 50%;
+        border-radius: 25px;
+        padding:24px 12px;
+    }
+}
