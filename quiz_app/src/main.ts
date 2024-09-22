@@ -20,10 +20,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <main>
       <h1>Welcome to the Frontend Quiz!</h1>
       <h2>Pick a subject to get started.</h2>
+      ${()=>{
+        data.map((quiz)=> quiz.tittle)
+      }}
     </main>
-    ${()=>{
-      data.map((quiz)=> quiz.tittle)
-    }}
   </div>
 `
 
