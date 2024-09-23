@@ -14,19 +14,23 @@ export interface Quizzes{
   questions:Array<Questions>
 }
 
-const {quizzes}= data;
+const {quizzes} = data;
 console.log(quizzes);
+let chooseQuizzse: Quizzes = {
+  title:"",
+  icon:"",
+  questions:[]
+};
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <header id="header">
-      
     </header>
     <main id="main">
     </main>
   </div>
 `
 header(document.querySelector<HTMLElement>("#header")!);
-main(document.querySelector<HTMLElement>('#main')!,quizzes);
+main(document.querySelector<HTMLElement>('#main')!,quizzes,chooseQuizzse);
 
 

@@ -1,16 +1,19 @@
 import { Quizzes } from './app.ts';
 import { renderTitle } from './renderTitle.ts';
 
-export const main = (element:HTMLElement,dataQuizzes:Array<Quizzes>):void =>{
-    const h1 = document.createElement("h1")
-    const h2 = document.createElement("h2")
-    const ul = document.createElement("ul") 
+export const main = (element:HTMLElement,dataQuizzes:Array<Quizzes>,chooseQuizzse:Quizzes):void =>{
     
-    h1.textContent = `Welcome to the Frontend Quiz!`
-    h2.textContent= `Pick a subject to get started.`
-    ul.className = "quizTitle";
-    ul.id = "renderTitle"    
-    element.append(h1,h2,ul)
+    const h1 = document.createElement("h1")
+    const span = document.createElement("span")
+    const ul = document.createElement("ul") 
+    if(chooseQuizzse.title === ""){
+        h1.textContent = `Welcome to the Frontend Quiz!`
+        span.textContent= `Pick a subject to get started.`
+        ul.className = "quizTitle";
+        ul.id = "renderTitle"    
+        element.append(h1,span,ul)
 
-    renderTitle(document.querySelector<HTMLUListElement>("#renderTitle")!,dataQuizzes);
+        renderTitle(document.querySelector<HTMLUListElement>("#renderTitle")!,dataQuizzes,chooseQuizzse);
+
+    } 
 }

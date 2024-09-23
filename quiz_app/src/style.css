@@ -3,5 +3,5 @@ body {
   background-size: cover; /* This ensures the image covers the whole background */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   background-position: center; /* Centers the background image */
-  background-color: #0f172a;
+  background-color: white;
 }
