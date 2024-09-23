@@ -1,33 +1,16 @@
-import './style.css';
+import { Quizzes } from './app.ts';
 import { renderTitle } from './renderTitle.ts';
-import { header } from './header.ts';
 
+export const main = (element:HTMLElement,dataQuizzes:Array<Quizzes>):void =>{
+    const h1 = document.createElement("h1")
+    const h2 = document.createElement("h2")
+    const ul = document.createElement("ul") 
+    
+    h1.textContent = `Welcome to the Frontend Quiz!`
+    h2.textContent= `Pick a subject to get started.`
+    ul.className = "quizTitle";
+    ul.id = "renderTitle"    
+    element.append(h1,h2,ul)
 
-export interface Questions {
-  question:string
-  options: Array<string>
-  answer:string
+    renderTitle(document.querySelector<HTMLUListElement>("#renderTitle")!,dataQuizzes);
 }
-export interface Quizzes{
-  title:string
-  icon:string
-  questions:Array<Questions>
-}
-
-let quiz:{} = {};
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <header id="header">
-      
-    </header>
-    <main>
-      <h1>Welcome to the Frontend Quiz!</h1>
-      <h2>Pick a subject to get started.</h2>
-      <ul class = "quizTitle" id = "renderTitle">
-      </ul>
-    </main>
-  </div>
-`
-header(document.querySelector<HTMLElement>("#header")!);
-renderTitle(document.querySelector<HTMLUListElement>("#renderTitle")!);
-

@@ -1,7 +1,7 @@
-import data from "./data.json";
+import { Quizzes } from "./app";
 
-export const renderTitle = (element : HTMLUListElement):void =>{
-    data.quizzes.map((obj) => {
+export const renderTitle = (element : HTMLUListElement,dataQuizzes:Array<Quizzes>):void =>{
+    dataQuizzes.map((obj) => {
         const liElement = document.createElement("li");
         const button = document.createElement("button");
         const img = document.createElement("img")
