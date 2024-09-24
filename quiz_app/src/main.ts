@@ -1,5 +1,5 @@
 import { Quizzes } from './app.ts';
-import { renderTitle } from './renderTitle.ts';
+import { renderQuizList } from './renderQuizList.ts';
 
 export const main = (element:HTMLElement,dataQuizzes:Array<Quizzes>,chooseQuizzse:Quizzes):void =>{
     
@@ -12,7 +12,7 @@ export const main = (element:HTMLElement,dataQuizzes:Array<Quizzes>,chooseQuizzs
     ul.id = "renderTitle"    
     element.append(h1,span,ul)
 
-    renderTitle(document.querySelector<HTMLUListElement>("#renderTitle")!,dataQuizzes,chooseQuizzse);
+    renderQuizList(document.querySelector<HTMLUListElement>("#renderTitle")!,dataQuizzes,chooseQuizzse);
     
 
 }

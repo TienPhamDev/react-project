@@ -16,7 +16,7 @@ export interface Quizzes{
 
 const {quizzes} = data;
 console.log(quizzes);
-let chooseQuizzse: Quizzes = {
+let selectedQuiz: Quizzes = {
   title:"",
   icon:"",
   questions:[]
@@ -31,6 +31,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `
 header(document.querySelector<HTMLElement>("#header")!);
-main(document.querySelector<HTMLElement>('#main')!,quizzes,chooseQuizzse);
+main(document.querySelector<HTMLElement>('#main')!,quizzes,selectedQuiz);
 
 
