@@ -1,5 +1,4 @@
 import { Quizzes } from "./app";
-
 export const renderTitle = (element : HTMLUListElement,dataQuizzes:Array<Quizzes>,chooseQuizzse:Quizzes):void =>{
     dataQuizzes.map((el) => {
         const liElement = document.createElement("li");
@@ -13,7 +12,8 @@ export const renderTitle = (element : HTMLUListElement,dataQuizzes:Array<Quizzes
         button.appendChild(img)
         button.appendChild(span)
         liElement.appendChild(button)
-        element.appendChild(liElement)
+        element.appendChild(liElement)         
+        
         button.addEventListener("click" ,()=>{
             if(button.id === el.title){
                 chooseQuizzse.title = el.title
@@ -23,10 +23,8 @@ export const renderTitle = (element : HTMLUListElement,dataQuizzes:Array<Quizzes
                 const main = document.querySelector<HTMLElement>('#main')!;
                 
                 main.children[2].remove();
-                el.questions.forEach((q)=>{
-                    main.firstElementChild!.textContent=`${q.question}`;
-                    main.children[1].textContent = "";
-                })
+                main.firstElementChild!.textContent=`${el.questions[0].question}`;
+                main.children[1].textContent = "";
                 const ul = document.createElement("ul")
                 ul.className = 'options'
                 ul.id = 'options'
@@ -38,10 +36,9 @@ export const renderTitle = (element : HTMLUListElement,dataQuizzes:Array<Quizzes
                     newLi.textContent= `${el}`
                     main.lastElementChild?.appendChild(newLi)
                 })
-                
-                
             }
-        })           
-        }
+        })  
+    }
+        
     );
 }
