@@ -1,27 +1,38 @@
+import { Questions } from "./app";
 
-export const renderQuestion = (element:HTMLElement):void =>{
-    element.addEventListener("click" ,()=>{
-        if(element.id === el.title){
-            chooseQuizzse.title = el.title
-            chooseQuizzse.icon = el.icon
-            chooseQuizzse.questions = el.questions
-            
-            const main = document.querySelector<HTMLElement>('#main')!;
-            
-            main.children[2].remove();
-            main.firstElementChild!.textContent=`${el.questions[0].question}`;
-            main.children[1].textContent = "";
-            const ul = document.createElement("ul")
-            ul.className = 'options'
-            ul.id = 'options'
-            main.appendChild(ul)
-            const options = el.questions.find((e)=> e.options)
-            console.log(options?.options);
-            options?.options.map((el)=>{
-                const newLi = document.createElement("li");
-                newLi.textContent= `${el}`
-                main.lastElementChild?.appendChild(newLi)
-            })
-        }
-    })  
+export const renderQuestion= (mainElement:HTMLElement,index:number,selectedQuiz:Array<Questions>):void =>{
+    let question = selectedQuiz[index]
+    const questionDiv = document.createElement("div")
+    const questions= document.createElement("h3")
+    const optionDiv = document.createElement("div")
+    questions.textContent = `${question.question}`
+    optionDiv.id = "optionDiv";
+    
+    
+    question.options.map((option:string,optionIndex:number)=>{
+        const label = document.createElement("label")
+        const radioInput  = document.createElement("input")
+        
+        label.textContent=`${option}`
+        label.htmlFor=`option-${optionIndex}`
+        radioInput.name = `option`
+        radioInput.type = "radio"
+        radioInput.id = `option-${optionIndex}`
+        radioInput.value = `${option}`
+        optionDiv.append(radioInput,label)
+        radioInput.addEventListener("click",()=>{
+            if(radioInput.value === question.answer){
+                console.log("right");
+                
+            }else{
+                console.log("wrong");
+                
+            }
+        })
+    })
+        questionDiv.append(questions,optionDiv)
+        
+    mainElement.appendChild(questionDiv)
+
+
 }

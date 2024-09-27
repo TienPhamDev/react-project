@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question Navigation</title>
+</head>
+<body>
+  <div id="questionContainer"></div>
+  <button id="nextButton">Next</button>
+
+  <script type="text/javascript">
+    const questions = [
+      "What is your name?",
+      "How old are you?",
+      "Where do you live?",
+      "What is your profession?"
+    ];
+
+    let currentIndex = 0;
+
+    // Function to render the current question
+    function renderQuestion() {
+      const questionContainer = document.getElementById('questionContainer');
+      questionContainer.textContent = questions[currentIndex];
+    }
+
+    // Next button event listener
+    document.getElementById('nextButton').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % questions.length; // Loop back to the start if at the end
+      renderQuestion();
+    });
+
+    // Initial render
+    renderQuestion();
+  </script>
+</body>
+</html>

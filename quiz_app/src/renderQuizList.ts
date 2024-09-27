@@ -1,6 +1,8 @@
+import { renderQuestion } from "./renderQuestion";
 import { Quizzes } from "./app";
-export const renderQuizList = (element : HTMLUListElement,dataQuizzes:Array<Quizzes>,selectedQuiz:Quizzes):void =>{
-    dataQuizzes.map((quiz,quizIndex) => {
+export const renderQuizList = (element : HTMLUListElement,dataQuizzes:Array<Quizzes>,selectedQuiz:Quizzes,indexQuestion:number):void =>{
+    dataQuizzes.map((quiz) => {
+        
         const liElement = document.createElement("li");
         const button = document.createElement("button");
         const span =document.createElement("span")
@@ -13,29 +15,25 @@ export const renderQuizList = (element : HTMLUListElement,dataQuizzes:Array<Quiz
         button.appendChild(span)
         liElement.appendChild(button)
         element.appendChild(liElement)
-
-        button.addEventListener("click" ,()=>{
-            if(button.id === quiz.title){
-                selectedQuiz.title = quiz.title
-                selectedQuiz.icon = quiz.icon
-                selectedQuiz.questions = quiz.questions
-                
-                const main = document.querySelector<HTMLElement>('#main')!;
-                
-                main.children[2].remove();
-                
-                main.firstElementChild!.textContent=`${quiz.questions[quizIndex].question}`;
-                let questionsIndex:number = 0;
-                main.children[1].textContent = "";
-                
-                const ul = document.createElement("ul")
-                ul.className = 'options'
-                ul.id = 'options'
-                main.appendChild(ul)
-                
-            }
-        })  
-    }
         
-    );
+        button.addEventListener("click" ,()=>{
+            const selectedQuiz = quiz.questions
+            console.log(selectedQuiz);
+            const main = document.querySelector<HTMLElement>('#main')!;
+            let currentQuestionIndex = indexQuestion;
+    
+            // const question = selectedQuiz[currentQuestionIndex]
+           
+            renderQuestion(main,currentQuestionIndex,selectedQuiz);
+            
+            const answerBtn = document.createElement("button");
+                
+            answerBtn.textContent = "Answer"
+            main.appendChild(answerBtn)
+            
+        })//button
+
+        
+    })//end map
+    
 }
