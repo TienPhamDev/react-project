@@ -1,9 +1,8 @@
 import { renderQuestion } from "./renderQuestion";
 import { Quizzes } from "./app";
-export const renderQuizList = (element : HTMLUListElement,dataQuizzes:Array<Quizzes>,selectedQuiz:Quizzes,indexQuestion:number):void =>{
-    dataQuizzes.map((quiz) => {
-        
-        const liElement = document.createElement("li");
+export const renderQuizList = (element : HTMLElement,dataQuizzes:Array<Quizzes>,currentQuestionIndex:number):void =>{
+    dataQuizzes.map((quiz,indexQuiz) => {
+        const divElement = document.createElement("div");
         const button = document.createElement("button");
         const span =document.createElement("span")
         const img = document.createElement("img")
@@ -13,24 +12,25 @@ export const renderQuizList = (element : HTMLUListElement,dataQuizzes:Array<Quiz
         button.id = `${quiz.title}`
         button.appendChild(img)
         button.appendChild(span)
-        liElement.appendChild(button)
-        element.appendChild(liElement)
+        divElement.appendChild(button)
+        element.appendChild(divElement)
         
         button.addEventListener("click" ,()=>{
             const selectedQuiz = quiz.questions
             console.log(selectedQuiz);
-            const main = document.querySelector<HTMLElement>('#main')!;
-            let currentQuestionIndex = indexQuestion;
-    
-            // const question = selectedQuiz[currentQuestionIndex]
-           
-            renderQuestion(main,currentQuestionIndex,selectedQuiz);
-            
-            const answerBtn = document.createElement("button");
-                
-            answerBtn.textContent = "Answer"
-            main.appendChild(answerBtn)
-            
+
+            renderQuestion(document.querySelector<HTMLElement>("#questions")!,currentQuestionIndex,selectedQuiz)!
+
+
+            const answerBtn = document.querySelector<HTMLButtonElement>("#answerBtn")!;
+            answerBtn.addEventListener("click",()=>{
+                if(currentQuestionIndex < selectedQuiz.length - 1){
+                    currentQuestionIndex++;
+                    renderQuestion(document.querySelector<HTMLElement>("#questions")!,currentQuestionIndex,selectedQuiz)!
+                    console.log("under 10");
+                    
+                }
+    })
         })//button
 
         
