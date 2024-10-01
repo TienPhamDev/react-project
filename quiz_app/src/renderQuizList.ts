@@ -1,7 +1,7 @@
 import { renderQuestion } from "./renderQuestion";
 import { Quizzes } from "./app";
 export const renderQuizList = (element : HTMLElement,dataQuizzes:Array<Quizzes>,currentQuestionIndex:number):void =>{
-    dataQuizzes.map((quiz,indexQuiz) => {
+    dataQuizzes.map((quiz) => {
         const divElement = document.createElement("div");
         const button = document.createElement("button");
         const span =document.createElement("span")
@@ -20,17 +20,25 @@ export const renderQuizList = (element : HTMLElement,dataQuizzes:Array<Quizzes>,
             console.log(selectedQuiz);
 
             renderQuestion(document.querySelector<HTMLElement>("#questions")!,currentQuestionIndex,selectedQuiz)!
-
+            
 
             const answerBtn = document.querySelector<HTMLButtonElement>("#answerBtn")!;
             answerBtn.addEventListener("click",()=>{
+                const selectedRadio = document.querySelector<HTMLInputElement>("input[name='options']:checked")!
+                if(selectedRadio && selectedRadio.value === selectedQuiz[currentQuestionIndex].answer){
+                    console.log("right anser");
+                    selectedRadio.checked = false;
+                }else{
+                    console.log("wrong");
+                    selectedRadio.checked = false;
+                }
                 if(currentQuestionIndex < selectedQuiz.length - 1){
                     currentQuestionIndex++;
+
                     renderQuestion(document.querySelector<HTMLElement>("#questions")!,currentQuestionIndex,selectedQuiz)!
-                    console.log("under 10");
-                    
                 }
-    })
+
+            })
         })//button
 
         

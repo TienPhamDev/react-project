@@ -12,7 +12,9 @@ export const renderQuestion= (divQuestions:HTMLElement,currentQuestionIndex:numb
         label.textContent=`${option}`
         label.htmlFor=`option-${optionIndex}`
         radioInput.id = `option-${optionIndex}`
-        radioInput.value = `${option}`   
+        radioInput.value = `${option}`
+        
+        
     })
     
 
