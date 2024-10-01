@@ -1,47 +1,84 @@
-import { renderQuestion } from "./renderQuestion";
-import { Quizzes } from "./app";
-export const renderQuizList = (element : HTMLElement,dataQuizzes:Array<Quizzes>,currentQuestionIndex:number):void =>{
+import { renderQuestion } from "./renderQuestion"; // Import the renderQuestion function
+import { Quizzes } from "./app"; // Import the Quizzes type from app module
+
+// This function renders the list of quizzes and handles the quiz interaction logic.
+export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>, currentQuestionIndex: number): void => {
+    
+    // Loop through each quiz in the dataQuizzes array
     dataQuizzes.map((quiz) => {
+        
+        // Create elements for each quiz: a div container, button, span for title, and image for the icon
         const divElement = document.createElement("div");
         const button = document.createElement("button");
-        const span =document.createElement("span")
-        const img = document.createElement("img")
-        img.src = `${quiz.icon}`;
-        img.alt = `${quiz.title}`;
-        span.textContent = `${quiz.title}`
-        button.id = `${quiz.title}`
-        button.appendChild(img)
-        button.appendChild(span)
-        divElement.appendChild(button)
-        element.appendChild(divElement)
-        
-        button.addEventListener("click" ,()=>{
-            const selectedQuiz = quiz.questions
-            console.log(selectedQuiz);
+        const span = document.createElement("span");
+        const img = document.createElement("img");
 
-            renderQuestion(document.querySelector<HTMLElement>("#questions")!,currentQuestionIndex,selectedQuiz)!
-            
+        // Set the quiz icon and title to the image and span
+        img.src = `${quiz.icon}`; // Set the source of the image to the quiz icon
+        img.alt = `${quiz.title}`; // Set the alt text for accessibility
+        span.textContent = `${quiz.title}`; // Display the quiz title in the span
 
+        // Set the button id to the quiz title and append the image and title (span) to the button
+        button.id = `${quiz.title}`;
+        button.appendChild(img);
+        button.appendChild(span);
+
+        // Append the button to the div element, and then append the div to the main element
+        divElement.appendChild(button);
+        element.appendChild(divElement);
+
+        // Add an event listener to the quiz button to handle when the user selects a quiz
+        button.addEventListener("click", () => {
+            const selectedQuiz = quiz.questions; // Get the questions of the selected quiz
+            console.log(selectedQuiz); // Log the selected quiz questions (for debugging)
+
+            // Select the HTML elements where the questions and quiz title will be displayed
+            const divQuestions = document.querySelector<HTMLDivElement>("#questions")!;
+            const divQuizTitle = document.querySelector<HTMLDivElement>("#quizTitle")!;
+
+            // Toggle the visibility of the questions and title (show them when a quiz is selected)
+            divQuestions.classList.toggle("hidden");
+            divQuizTitle.classList.toggle("hidden");
+
+            let score = 0; // Initialize the quiz score
+
+            // Render the first question of the selected quiz
+            renderQuestion(document.querySelector<HTMLElement>("#questions")!, currentQuestionIndex, selectedQuiz)!;
+
+            // Select the answer button to listen for when the user submits an answer
             const answerBtn = document.querySelector<HTMLButtonElement>("#answerBtn")!;
-            answerBtn.addEventListener("click",()=>{
-                const selectedRadio = document.querySelector<HTMLInputElement>("input[name='options']:checked")!
-                if(selectedRadio && selectedRadio.value === selectedQuiz[currentQuestionIndex].answer){
-                    console.log("right anser");
-                    selectedRadio.checked = false;
-                }else{
-                    console.log("wrong");
-                    selectedRadio.checked = false;
+            answerBtn.addEventListener("click", () => {
+                // Check which radio button is selected
+                const selectedRadio = document.querySelector<HTMLInputElement>("input[name='options']:checked")!;
+                
+                // If a radio button is selected and the answer is correct
+                if (selectedRadio && selectedRadio.value === selectedQuiz[currentQuestionIndex].answer) {
+                    console.log("Right answer"); // Log that the answer is correct
+                    score++; // Increment the score
+                    selectedRadio.checked = false; // Uncheck the radio after answering
+                } 
+                // If no radio button is selected, prompt the user to choose an answer
+                else if (selectedRadio === null) {
+                    console.log("Please choose an answer");
+                    return;
+                } 
+                // If the selected answer is wrong
+                else {
+                    console.log("Wrong answer");
+                    selectedRadio.checked = false; // Uncheck the radio after answering
                 }
-                if(currentQuestionIndex < selectedQuiz.length - 1){
-                    currentQuestionIndex++;
 
-                    renderQuestion(document.querySelector<HTMLElement>("#questions")!,currentQuestionIndex,selectedQuiz)!
+                // If there are more questions left, move to the next question
+                if (currentQuestionIndex < selectedQuiz.length - 1) {
+                    currentQuestionIndex++; // Move to the next question
+                    renderQuestion(document.querySelector<HTMLElement>("#questions")!, currentQuestionIndex, selectedQuiz)!;
+                } 
+                // If all questions are answered, finish the quiz
+                else {
+                    console.log("Finished all questions");
+                    console.log(score); // Log the final score
                 }
-
-            })
-        })//button
-
-        
-    })//end map
-    
-}
+            });
+        }); // End of button click listener
+    }); // End of map function
+};

@@ -31,7 +31,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <main id="main">
       <div id="quizTitle">
       </div>
-      <div id="questions">
+      <div id="questions" class="hidden">
         <h3>Questions Here</h3>
         <div class="options">
           <input id="option-1" name="options" type="radio" value="">
