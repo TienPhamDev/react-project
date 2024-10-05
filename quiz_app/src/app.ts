@@ -25,11 +25,14 @@ let selectedQuiz: Quizzes = {
 };
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
+  <div class="mainDiv">
     <header id="header">
     </header>
     <main id="main">
-      <div id="quizTitle">
+      <div id="quizTitle" class="quizTitle">
+       <h2>Welcome to the</h2>
+       <h3>Frontend Quiz!</h3>
+       <h5>Pick a subject to get started.</h5>
       </div>
       <div id="questions" class="hidden">
         <h3>Questions Here</h3>
