@@ -10,18 +10,23 @@
   } 
 }
 .dark{
-  --main-bg:#3B4D66;
+  --main-bg:#313E51;
   --primary-text:#f1f5f9;
   --secondary-text:#ABC1E1;
-  --purple:#A729F5;
   
+  --btn-bg:#3B4D66;
+  --purple:#A729F5;
+
   @apply bg-[url("/assets/images/pattern-background-mobile-dark.svg")] bg-bgPrimary text-tBase;
 }
 .light{
-  --main-bg:#f1f5f9;
+  --main-bg:#f4f6fa;
   --primary-text:#313E51;
   --secondary-text:#626C7F;
+  
+  --btn-bg:#fff;
   --purple:#A729F5;
+
   @apply bg-[url("/assets/images/pattern-background-mobile-light.svg")] bg-bgPrimary text-tBase;
 }
 
@@ -29,9 +34,10 @@
 .mainDiv{
   @apply container px-8;
 }
-.quizTitle{
-  
+.quizTitle {
+  @apply flex flex-col gap-10;
 }
+/* welcome div style */
 .welcome h2{
   @apply text-[4.4rem] font-light leading-tight;
 }
@@ -40,4 +46,26 @@
 }
 .welcome h5{
   @apply text-tSecondary italic font-light leading-relaxed;
+}
+/* frontEndQuiz div style */
+.frontEndQuiz{
+  @apply flex flex-col gap-4;
+}
+.frontEndQuiz button{
+  @apply flex justify-start items-center gap-4 text-lg bg-bgButton p-2 rounded-[1.2rem];
+}
+.frontEndQuiz button span:first-child{
+  @apply rounded-xl;
+}
+span[id="HTML"]{
+  @apply bg-[#FFF1E9];
+}
+span[id="CSS"]{
+  @apply bg-[#E0FDEF];
+}
+span[id="JavaScript"]{
+  @apply bg-[#EBF0FF];
+}
+span[id="Accessibility"]{
+  @apply bg-[#F6E7FF];
 }

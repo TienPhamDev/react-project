@@ -33,6 +33,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <h2>Welcome to the</h2>
           <h3>Frontend Quiz!</h3>
           <h5>Pick a subject to get started.</h5>
+        </div>
+        <div class="frontEndQuiz" id="frontEndQuiz">
         </div> 
       </div>
       <div id="questions" class="hidden">
@@ -53,4 +55,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `
 header(document.querySelector<HTMLElement>("#header")!);
-renderQuizList(document.querySelector<HTMLDivElement>("#quizTitle")!,quizzes,currentQuestionIndex);
+renderQuizList(document.querySelector<HTMLDivElement>("#frontEndQuiz")!,quizzes,currentQuestionIndex);

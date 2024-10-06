@@ -8,24 +8,28 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
     dataQuizzes.map((quiz) => {
         
         // Create elements for each quiz: a div container, button, span for title, and image for the icon
-        const divElement = document.createElement("div");
+        
         const button = document.createElement("button");
+        const imgSpan = document.createElement("span");
         const span = document.createElement("span");
         const img = document.createElement("img");
 
         // Set the quiz icon and title to the image and span
         img.src = `${quiz.icon}`; // Set the source of the image to the quiz icon
         img.alt = `${quiz.title}`; // Set the alt text for accessibility
+        imgSpan.id = `${quiz.title}`
+        imgSpan.appendChild(img);
+
         span.textContent = `${quiz.title}`; // Display the quiz title in the span
 
         // Set the button id to the quiz title and append the image and title (span) to the button
         button.id = `${quiz.title}`;
-        button.appendChild(img);
+        button.appendChild(imgSpan);
         button.appendChild(span);
 
         // Append the button to the div element, and then append the div to the main element
-        divElement.appendChild(button);
-        element.appendChild(divElement);
+        
+        element.appendChild(button);
 
         // Add an event listener to the quiz button to handle when the user selects a quiz
         button.addEventListener("click", () => {

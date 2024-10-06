@@ -11,10 +11,8 @@ export default {
         bgPrimary: "var(--main-bg)",
         tBase: "var(--primary-text)",
         tSecondary:"var(--secondary-text)",
-        purple:"var(--purple)"
-      },
-      backgroundImage:{
-        
+        purple:"var(--purple)",
+        bgButton:"var(--btn-bg)"
       }
     },
   },
