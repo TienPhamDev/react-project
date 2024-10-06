@@ -1,6 +1,5 @@
 import './style.css';
 import { header } from './header.ts';
-import { main } from './main.ts';
 import data from './data.json'
 import { renderQuizList } from './renderQuizList.ts';
 
@@ -30,9 +29,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </header>
     <main id="main">
       <div id="quizTitle" class="quizTitle">
-       <h2>Welcome to the</h2>
-       <h3>Frontend Quiz!</h3>
-       <h5>Pick a subject to get started.</h5>
+        <div class="welcome">
+          <h2>Welcome to the</h2>
+          <h3>Frontend Quiz!</h3>
+          <h5>Pick a subject to get started.</h5>
+        </div> 
       </div>
       <div id="questions" class="hidden">
         <h3>Questions Here</h3>
