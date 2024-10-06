@@ -9,26 +9,29 @@
     font-size: 62.5%; /* 1rem = 10px */
   } 
 }
-.dark{
-  --main-bg:#313E51;
-  --primary-text:#f1f5f9;
-  --secondary-text:#ABC1E1;
+@layer components{
+  .dark{
+    --main-bg:#313E51;
+    --primary-text:#f1f5f9;
+    --secondary-text:#ABC1E1;
+    
+    --btn-bg:#3B4D66;
+    --purple:#A729F5;
   
-  --btn-bg:#3B4D66;
-  --purple:#A729F5;
-
-  @apply bg-[url("/assets/images/pattern-background-mobile-dark.svg")] bg-bgPrimary text-tBase;
-}
-.light{
-  --main-bg:#f4f6fa;
-  --primary-text:#313E51;
-  --secondary-text:#626C7F;
+    @apply bg-[url("/assets/images/pattern-background-mobile-dark.svg")] bg-bgPrimary text-tBase;
+  }
+  .light{
+    --main-bg:#f4f6fa;
+    --primary-text:#313E51;
+    --secondary-text:#626C7F;
+    
+    --btn-bg:#fff;
+    --purple:#A729F5;
   
-  --btn-bg:#fff;
-  --purple:#A729F5;
-
-  @apply bg-[url("/assets/images/pattern-background-mobile-light.svg")] bg-bgPrimary text-tBase;
+    @apply bg-[url("/assets/images/pattern-background-mobile-light.svg")] bg-bgPrimary text-tBase;
+  }
 }
+
 
 
 .mainDiv{
@@ -37,6 +40,17 @@
 .quizTitle {
   @apply flex flex-col gap-10;
 }
+/* header element style */
+header{
+  @apply flex justify-between py-[1rem];
+}
+.mode{
+  @apply flex justify-between gap-2 items-center;
+}
+.modeBtn{
+  @apply w-[4.4rem] h-[2.4rem] rounded-3xl bg-white p-2;
+}
+
 /* welcome div style */
 .welcome h2{
   @apply text-[4.4rem] font-light leading-tight;

@@ -42,6 +42,7 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
 
             // Toggle the visibility of the questions and title (show them when a quiz is selected)
             divQuestions.classList.toggle("hidden");
+            divQuizTitle.classList.toggle("quizTitle");
             divQuizTitle.classList.toggle("hidden");
 
             let score = 0; // Initialize the quiz score
