@@ -24,17 +24,17 @@ let selectedQuiz: Quizzes = {
 };
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div class="mainDiv">
-    <header id="header">
+  <div class="mainDiv container px-8">
+    <header id="header" class="flex justify-between py-[1rem]">
     </header>
     <main id="main">
-      <div id="quizTitle" class="quizTitle">
+      <div id="quizTitle" class="quizTitle flex flex-col gap-10">
         <div class="welcome">
-          <h2>Welcome to the</h2>
-          <h3>Frontend Quiz!</h3>
-          <h5>Pick a subject to get started.</h5>
+          <h2 class="text-[4.4rem] font-light leading-tight">Welcome to the</h2>
+          <h3 class="font-bold text-[4.4rem] leading-tight">Frontend Quiz!</h3>
+          <h5 class="text-tSecondary italic font-light leading-relaxed">Pick a subject to get started.</h5>
         </div>
-        <div class="frontEndQuiz" id="frontEndQuiz">
+        <div class="frontEndQuiz flex flex-col gap-4" id="frontEndQuiz">
         </div> 
       </div>
       <div id="questions" class="hidden">
