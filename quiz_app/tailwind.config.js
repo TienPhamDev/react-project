@@ -12,7 +12,9 @@ export default {
         tBase: "var(--primary-text)",
         tSecondary:"var(--secondary-text)",
         pPurple:"var(--purple)",
-        bgButton:"var(--btn-bg)"
+        bgButton:"var(--btn-bg)",
+        bgOption:"var(--bgOption)",
+        tOption:"var(--tOption)"
       }
     },
   },
