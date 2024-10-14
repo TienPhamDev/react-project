@@ -55,6 +55,7 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
             answerBtn.addEventListener("click", () => {
                 // Check which radio button is selected
                 const selectedRadio = document.querySelector<HTMLInputElement>("input[name='options']:checked")!;
+                console.log(selectedRadio);
                 
                 // If a radio button is selected and the answer is correct
                 if (selectedRadio && selectedRadio.value === selectedQuiz[currentQuestionIndex].answer) {

@@ -42,5 +42,7 @@ export const renderQuestion = (divQuestions: HTMLElement, currentQuestionIndex: 
         label.htmlFor = `option-${optionIndex}`;
         radioInput.id = `option-${optionIndex}`;
         radioInput.value = `${option}`;
+        
     });
+    
 }
