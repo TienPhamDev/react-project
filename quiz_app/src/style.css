@@ -11,12 +11,6 @@
   input[type="radio"]{
     display: none;
   }
-  input[type="radio"]:checked + label {
-    @apply border-pPurple;
-  }
-  input[type="radio"]:checked + label >  span:first-child{
-    @apply bg-pPurple text-white;
-  }
 }
 @layer components{
   .dark{
@@ -53,11 +47,24 @@
   .answerBtn{
     @apply bg-pPurple text-white font-bold w-full my-8 p-6 text-2xl rounded-3xl tracking-wider;
   }
-}
-
-
-
-
+  input[type="radio"]:checked + label {
+    @apply border-pPurple;
+  }
+  input[type="radio"]:checked + label >  span:first-child{
+    @apply bg-pPurple text-white;
+  }
+  span[id="HTML"]{
+    @apply bg-[#FFF1E9];
+  }
+  span[id="CSS"]{
+    @apply bg-[#E0FDEF];
+  }
+  span[id="JavaScript"]{
+    @apply bg-[#EBF0FF];
+  }
+  span[id="Accessibility"]{
+    @apply bg-[#F6E7FF];
+  }
 /* frontEndQuiz div style */
 
 .frontEndQuiz button{
@@ -66,15 +73,8 @@
 .frontEndQuiz button span:first-child{
   @apply rounded-xl;
 }
-span[id="HTML"]{
-  @apply bg-[#FFF1E9];
+
 }
-span[id="CSS"]{
-  @apply bg-[#E0FDEF];
-}
-span[id="JavaScript"]{
-  @apply bg-[#EBF0FF];
-}
-span[id="Accessibility"]{
-  @apply bg-[#F6E7FF];
-}
+
+
+

@@ -1,6 +1,6 @@
 import { renderQuestion } from "./renderQuestion"; // Import the renderQuestion function
 import { Quizzes } from "./app"; // Import the Quizzes type from app module
-
+import { header } from "./header";
 // This function renders the list of quizzes and handles the quiz interaction logic.
 export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>, currentQuestionIndex: number): void => {
     
@@ -35,7 +35,8 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
         button.addEventListener("click", () => {
             const selectedQuiz = quiz.questions; // Get the questions of the selected quiz
             console.log(selectedQuiz); // Log the selected quiz questions (for debugging)
-
+            
+            header(document.querySelector<HTMLElement>("#header")!,quiz);
             // Select the HTML elements where the questions and quiz title will be displayed
             const divQuestions = document.querySelector<HTMLDivElement>("#questions")!;
             const divQuizTitle = document.querySelector<HTMLDivElement>("#quizTitle")!;

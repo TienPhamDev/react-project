@@ -20,7 +20,7 @@ const {quizzes} = data;
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div class="mainDiv container px-8">
-    <header id="header" class="flex justify-between py-[1rem]">
+    <header id="header" class="flex justify-between py-[2rem]">
     </header>
     <main id="main">
       <div id="quizTitle" class="quizTitle flex flex-col gap-10">
