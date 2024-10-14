@@ -1,24 +1,30 @@
 import { renderQuestion } from "./renderQuestion"; // Import the renderQuestion function
-import { Quizzes } from "./app"; // Import the Quizzes type from app module
-import { header } from "./header";
-// This function renders the list of quizzes and handles the quiz interaction logic.
+import { Quizzes } from "./app"; // Import the Quizzes type from the app module
+import { header } from "./header"; // Import the header function
+
+/**
+ * Renders the list of quizzes and handles the quiz interaction logic.
+ * 
+ * @param {HTMLElement} element - The container where the quiz list will be rendered.
+ * @param {Array<Quizzes>} dataQuizzes - The array of quiz data to be displayed.
+ * @param {number} currentQuestionIndex - The index of the current question in the selected quiz.
+ */
 export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>, currentQuestionIndex: number): void => {
     
     // Loop through each quiz in the dataQuizzes array
     dataQuizzes.map((quiz) => {
         
-        // Create elements for each quiz: a div container, button, span for title, and image for the icon
-        
+        // Create elements for each quiz: a button, span for the title, and image for the icon
         const button = document.createElement("button");
-        const imgSpan = document.createElement("span");
-        const span = document.createElement("span");
-        const img = document.createElement("img");
+        const imgSpan = document.createElement("span"); // Span for holding the quiz icon
+        const span = document.createElement("span");    // Span for holding the quiz title
+        const img = document.createElement("img");      // Image for the quiz icon
 
         // Set the quiz icon and title to the image and span
         img.src = `${quiz.icon}`; // Set the source of the image to the quiz icon
         img.alt = `${quiz.title}`; // Set the alt text for accessibility
-        imgSpan.id = `${quiz.title}`
-        imgSpan.appendChild(img);
+        imgSpan.id = `${quiz.title}`; // Set the id of the span holding the image
+        imgSpan.appendChild(img); // Append the image to the span
 
         span.textContent = `${quiz.title}`; // Display the quiz title in the span
 
@@ -27,65 +33,66 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
         button.appendChild(imgSpan);
         button.appendChild(span);
 
-        // Append the button to the div element, and then append the div to the main element
-        
+        // Append the button to the main element (quiz list container)
         element.appendChild(button);
 
-        // Add an event listener to the quiz button to handle when the user selects a quiz
+        // Add an event listener to the button for when the user selects a quiz
         button.addEventListener("click", () => {
-            const selectedQuiz = quiz.questions; // Get the questions of the selected quiz
-            console.log(selectedQuiz); // Log the selected quiz questions (for debugging)
-            
-            header(document.querySelector<HTMLElement>("#header")!,quiz);
+            const selectedQuiz = quiz.questions; // Get the questions from the selected quiz
+            console.log(selectedQuiz); // Log the selected quiz questions for debugging
+
+            // Render the quiz header (title and other info)
+            header(document.querySelector<HTMLElement>("#header")!, quiz);
+
             // Select the HTML elements where the questions and quiz title will be displayed
             const divQuestions = document.querySelector<HTMLDivElement>("#questions")!;
             const divQuizTitle = document.querySelector<HTMLDivElement>("#quizTitle")!;
 
-            // Toggle the visibility of the questions and title (show them when a quiz is selected)
+            // Toggle the visibility of the questions and title
             divQuestions.classList.toggle("hidden");
             divQuizTitle.classList.toggle("quizTitle");
             divQuizTitle.classList.toggle("hidden");
 
-            let score = 0; // Initialize the quiz score
+            let score = 0; // Initialize the score to 0
 
             // Render the first question of the selected quiz
             renderQuestion(document.querySelector<HTMLElement>("#questions")!, currentQuestionIndex, selectedQuiz)!;
 
-            // Select the answer button to listen for when the user submits an answer
+            // Select the answer button to handle when the user submits an answer
             const answerBtn = document.querySelector<HTMLButtonElement>("#answerBtn")!;
             answerBtn.addEventListener("click", () => {
-                // Check which radio button is selected
+                // Check which radio button (answer option) is selected
                 const selectedRadio = document.querySelector<HTMLInputElement>("input[name='options']:checked")!;
-                console.log(selectedRadio);
-                
-                // If a radio button is selected and the answer is correct
+                console.log(selectedRadio); // Log the selected radio button for debugging
+
+                // If the selected answer is correct
                 if (selectedRadio && selectedRadio.value === selectedQuiz[currentQuestionIndex].answer) {
-                    console.log("Right answer"); // Log that the answer is correct
+                    console.log("Right answer"); // Log that the user chose the correct answer
                     score++; // Increment the score
-                    selectedRadio.checked = false; // Uncheck the radio after answering
+                    selectedRadio.checked = false; // Uncheck the radio button after submission
                 } 
-                // If no radio button is selected, prompt the user to choose an answer
+                // If no answer is selected, prompt the user to choose one
                 else if (selectedRadio === null) {
                     console.log("Please choose an answer");
                     return;
                 } 
-                // If the selected answer is wrong
+                // If the selected answer is incorrect
                 else {
-                    console.log("Wrong answer");
-                    selectedRadio.checked = false; // Uncheck the radio after answering
+                    console.log("Wrong answer"); // Log that the answer is wrong
+                    selectedRadio.checked = false; // Uncheck the radio button after submission
                 }
 
-                // If there are more questions left, move to the next question
+                // If there are more questions in the quiz, move to the next question
                 if (currentQuestionIndex < selectedQuiz.length - 1) {
-                    currentQuestionIndex++; // Move to the next question
+                    currentQuestionIndex++; // Increment the current question index
                     renderQuestion(document.querySelector<HTMLElement>("#questions")!, currentQuestionIndex, selectedQuiz)!;
                 } 
                 // If all questions are answered, finish the quiz
                 else {
-                    console.log("Finished all questions");
+                    console.log("Finished all questions"); // Log that the quiz is finished
                     console.log(score); // Log the final score
                 }
             });
-        }); // End of button click listener
+        }); // End of button click event listener
     }); // End of map function
 };

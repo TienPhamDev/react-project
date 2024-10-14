@@ -9,40 +9,52 @@ import { Questions } from "./app";
  */
 export const renderQuestion = (divQuestions: HTMLElement, currentQuestionIndex: number, selectedQuiz: Array<Questions>): void => {
     
-    const questionHeader = document.querySelector<HTMLDivElement>(".questionHeader")!
-    questionHeader.firstElementChild!.textContent =`Question ${currentQuestionIndex + 1 } of 10`;
-    questionHeader.children[1]!.textContent = `${selectedQuiz[currentQuestionIndex].question}`
-    // Loop through the options of the current question and set the text, id, and value for each corresponding label and radio input
+    // Select the question header element and update it with the current question number and total (10 questions).
+    const questionHeader = document.querySelector<HTMLDivElement>(".questionHeader")!;
+    
+    // Update the question number in the first child of the questionHeader element.
+    questionHeader.firstElementChild!.textContent = `Question ${currentQuestionIndex + 1} of 10`;
+    
+    // Set the question text in the second child of the questionHeader element.
+    questionHeader.children[1]!.textContent = `${selectedQuiz[currentQuestionIndex].question}`;
+
+    // Loop through each option of the current question and update the label, radio input, and spans for the letter and option text.
     selectedQuiz[currentQuestionIndex].options.map((option: string, optionIndex: number) => {
-        // Select all label elements and update their text and for attributes based on the optionIndex
+        
+        // Select the label element for the option based on its index and assign the corresponding text and attributes.
         const label = document.querySelectorAll<HTMLLabelElement>("label")[optionIndex]!;
+        
+        // Select the radio input element for the option based on its index and assign the corresponding id and value.
         const radioInput = document.querySelectorAll<HTMLInputElement>("input")[optionIndex]!;
+        
+        // Select the span elements for the option letter (A, B, C, D) and the option text based on the option index.
         const letterSpan = document.querySelectorAll<HTMLSpanElement>(".letterSpan")[optionIndex];
         const optionTextSpan = document.querySelectorAll<HTMLSpanElement>(".optionTextSpan")[optionIndex];
-        // Set label text and corresponding input id and value
+        
+        // Use a switch statement to assign the appropriate letter (A, B, C, D) to each option.
         switch (optionIndex) {
             case 0:
-              // Code to execute if expression === value1
                 letterSpan.textContent = 'A';
                 break;
             case 1:
-              // Code to execute if expression === value2
                 letterSpan.textContent = 'B';
                 break;
             case 2:
-            // Code to execute if expression === value2
-                letterSpan.textContent = 'C';  
+                letterSpan.textContent = 'C';
                 break;
             case 3:
-              // Code to execute if expression === value2
                 letterSpan.textContent = 'D';
                 break;
-          }
+        }
+        
+        // Set the option text for the span element based on the current option.
         optionTextSpan.textContent = `${option}`;
+        
+        // Set the label's `for` attribute to match the radio input's id for proper accessibility.
         label.htmlFor = `option-${optionIndex}`;
+        
+        // Set the radio input's id and value to match the current option.
         radioInput.id = `option-${optionIndex}`;
         radioInput.value = `${option}`;
-        
     });
-    
-}
+};
