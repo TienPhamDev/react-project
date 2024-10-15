@@ -14,7 +14,9 @@ export default {
         pPurple:"var(--purple)",
         bgButton:"var(--btn-bg)",
         bgOption:"var(--bgOption)",
-        tOption:"var(--tOption)"
+        tOption:"var(--tOption)",
+        cError:"var(--error)",
+        cCorrect:"var(--correct)"
       }
     },
   },

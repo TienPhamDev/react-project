@@ -64,34 +64,51 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
                 // Check which radio button (answer option) is selected
                 const selectedRadio = document.querySelector<HTMLInputElement>("input[name='options']:checked")!;
                 console.log(selectedRadio); // Log the selected radio button for debugging
-
+                const selectedLabel = document.querySelector<HTMLLabelElement>(`label[for=${selectedRadio.id}]`)
+                console.log(selectedLabel);
+                const lastSpanLabel = selectedLabel?.lastElementChild;
+                const svgChildrenLabel = lastSpanLabel!.children
+                console.log(lastSpanLabel);
+                console.log(svgChildrenLabel);
+                
+                
+                const errorAnswer = document.querySelector<HTMLHeadingElement>(".errorAnswer")!
+                errorAnswer.classList.add("hidden")
+                // selectedLabel?.classList.remove("border-cCorrect")
+                // selectedLabel?.firstElementChild?.classList.remove("bg-cCorrect","text-white")
+                svgChildrenLabel[0]!.classList.add("hidden")
                 // If the selected answer is correct
                 if (selectedRadio && selectedRadio.value === selectedQuiz[currentQuestionIndex].answer) {
                     console.log("Right answer"); // Log that the user chose the correct answer
+                    selectedLabel?.classList.add("border-cCorrect")
+                    selectedLabel?.firstElementChild?.classList.add("bg-cCorrect","text-white")
+                    
+                    svgChildrenLabel[0]!.classList.remove("hidden")
                     score++; // Increment the score
-                    selectedRadio.checked = false; // Uncheck the radio button after submission
+                    selectedRadio.checked = false; // Uncheck the radio button after submission     
                 } 
                 // If no answer is selected, prompt the user to choose one
                 else if (selectedRadio === null) {
-                    console.log("Please choose an answer");
+                    errorAnswer.classList.remove("hidden")
                     return;
                 } 
                 // If the selected answer is incorrect
                 else {
                     console.log("Wrong answer"); // Log that the answer is wrong
+                    svgChildrenLabel[1]!.classList.remove("hidden")
                     selectedRadio.checked = false; // Uncheck the radio button after submission
                 }
 
-                // If there are more questions in the quiz, move to the next question
-                if (currentQuestionIndex < selectedQuiz.length - 1) {
-                    currentQuestionIndex++; // Increment the current question index
-                    renderQuestion(document.querySelector<HTMLElement>("#questions")!, currentQuestionIndex, selectedQuiz)!;
-                } 
-                // If all questions are answered, finish the quiz
-                else {
-                    console.log("Finished all questions"); // Log that the quiz is finished
-                    console.log(score); // Log the final score
-                }
+                // // If there are more questions in the quiz, move to the next question
+                // if (currentQuestionIndex < selectedQuiz.length - 1) {
+                //     currentQuestionIndex++; // Increment the current question index
+                //     renderQuestion(document.querySelector<HTMLElement>("#questions")!, currentQuestionIndex, selectedQuiz)!;
+                // } 
+                // // If all questions are answered, finish the quiz
+                // else {
+                //     console.log("Finished all questions"); // Log that the quiz is finished
+                //     console.log(score); // Log the final score
+                // }
             });
         }); // End of button click event listener
     }); // End of map function

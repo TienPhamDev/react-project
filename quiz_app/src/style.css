@@ -22,6 +22,8 @@
     --purple:#A729F5;
     --bgOption:#fff;
     --tOption:#626C7F;
+    --error:#EE5454;
+    --correct:#26d782;
     @apply bg-[url("/assets/images/pattern-background-mobile-dark.svg")] bg-bgPrimary text-tBase;
     @apply bg-no-repeat bg-cover;
   }
@@ -34,18 +36,23 @@
     --purple:#A729F5;
     --bgOption:#f4f6fa;
     --tOption:#626C7F;
-  
+    --error:#EE5454;
+    --correct:#26d782;
     @apply bg-[url("/assets/images/pattern-background-mobile-light.svg")] bg-bgPrimary text-tBase;
     @apply bg-no-repeat bg-cover;
   }
   .optionLabel{
-    @apply border-[0.15rem] transition duration-300 border-bgButton px-2 py-2 flex gap-8 text-xl  items-center bg-bgButton rounded-2xl;
+    @apply border-[0.15rem] transition duration-300 border-bgButton px-2 py-2 flex gap-8 text-xl  items-center bg-bgButton justify-start rounded-2xl;
   }
   .letterSpan{
     @apply px-4 py-2 transition duration-300 bg-bgOption rounded-lg text-tOption font-bold ;
   }
   .answerBtn{
     @apply bg-pPurple text-white font-bold w-full my-8 p-6 text-2xl rounded-3xl tracking-wider;
+  }
+  .nextQuestion{
+    @apply bg-pPurple text-white font-bold w-full my-8 p-6 text-2xl rounded-3xl tracking-wider;
+  
   }
   input[type="radio"]:checked + label {
     @apply border-pPurple;
