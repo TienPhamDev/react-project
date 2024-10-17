@@ -1,7 +1,7 @@
 import { renderQuestion } from "./renderQuestion"; // Import the renderQuestion function
 import { Quizzes } from "./app"; // Import the Quizzes type from the app module
 import { header } from "./header"; // Import the header function
-
+import isAnswerCorrect from "./isAnswerCorrect";
 /**
  * Renders the list of quizzes and handles the quiz interaction logic.
  * 
@@ -39,7 +39,6 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
         // Add an event listener to the button for when the user selects a quiz
         button.addEventListener("click", () => {
             const selectedQuiz = quiz.questions; // Get the questions from the selected quiz
-            console.log(selectedQuiz); // Log the selected quiz questions for debugging
 
             // Render the quiz header (title and other info)
             header(document.querySelector<HTMLElement>("#header")!, quiz);
@@ -56,30 +55,35 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
             let score = 0; // Initialize the score to 0
 
             // Render the first question of the selected quiz
-            renderQuestion(document.querySelector<HTMLElement>("#questions")!, currentQuestionIndex, selectedQuiz)!;
+            renderQuestion(currentQuestionIndex, selectedQuiz)!;
 
             // Select the answer button to handle when the user submits an answer
             const answerBtn = document.querySelector<HTMLButtonElement>("#answerBtn")!;
+            const nextQuestion = document.querySelector<HTMLButtonElement>("#nextQuestion")!;
             answerBtn.addEventListener("click", () => {
                 // Check which radio button (answer option) is selected
                 const selectedRadio = document.querySelector<HTMLInputElement>("input[name='options']:checked")!;
-                console.log(selectedRadio); // Log the selected radio button for debugging
-                const selectedLabel = document.querySelector<HTMLLabelElement>(`label[for=${selectedRadio.id}]`)
-                console.log(selectedLabel);
-                const lastSpanLabel = selectedLabel?.lastElementChild;
-                const svgChildrenLabel = lastSpanLabel!.children
-                console.log(lastSpanLabel);
-                console.log(svgChildrenLabel);
-                
+                const selectAllRadio = document.querySelectorAll<HTMLInputElement>("input[name='options']")
+                const valueAllRadio = [...selectAllRadio].map(node => node);
+                console.log(valueAllRadio);
                 
                 const errorAnswer = document.querySelector<HTMLHeadingElement>(".errorAnswer")!
+                
+                if (selectedRadio === null) {
+                    errorAnswer.classList.remove("hidden")
+                    return;
+                } 
+                const selectedLabel = document.querySelector<HTMLLabelElement>(`label[for=${selectedRadio.id}]`)!
+                const lastSpanLabel = selectedLabel?.lastElementChild;
+                const svgChildrenLabel = lastSpanLabel!.children
+                
+                
+
                 errorAnswer.classList.add("hidden")
-                // selectedLabel?.classList.remove("border-cCorrect")
-                // selectedLabel?.firstElementChild?.classList.remove("bg-cCorrect","text-white")
                 svgChildrenLabel[0]!.classList.add("hidden")
+                
                 // If the selected answer is correct
                 if (selectedRadio && selectedRadio.value === selectedQuiz[currentQuestionIndex].answer) {
-                    console.log("Right answer"); // Log that the user chose the correct answer
                     selectedLabel?.classList.add("border-cCorrect")
                     selectedLabel?.firstElementChild?.classList.add("bg-cCorrect","text-white")
                     
@@ -87,28 +91,47 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
                     score++; // Increment the score
                     selectedRadio.checked = false; // Uncheck the radio button after submission     
                 } 
-                // If no answer is selected, prompt the user to choose one
-                else if (selectedRadio === null) {
-                    errorAnswer.classList.remove("hidden")
-                    return;
-                } 
                 // If the selected answer is incorrect
                 else {
-                    console.log("Wrong answer"); // Log that the answer is wrong
+                    selectedLabel?.classList.add("border-cError")
+                    selectedLabel?.firstElementChild?.classList.add("bg-cError","text-white")
+                    
                     svgChildrenLabel[1]!.classList.remove("hidden")
                     selectedRadio.checked = false; // Uncheck the radio button after submission
+                    
+                    isAnswerCorrect(valueAllRadio,selectedQuiz,currentQuestionIndex,"remove")
                 }
+                answerBtn.classList.add("hidden")
+                nextQuestion.classList.remove("hidden")
 
-                // // If there are more questions in the quiz, move to the next question
-                // if (currentQuestionIndex < selectedQuiz.length - 1) {
-                //     currentQuestionIndex++; // Increment the current question index
-                //     renderQuestion(document.querySelector<HTMLElement>("#questions")!, currentQuestionIndex, selectedQuiz)!;
-                // } 
-                // // If all questions are answered, finish the quiz
-                // else {
-                //     console.log("Finished all questions"); // Log that the quiz is finished
-                //     console.log(score); // Log the final score
-                // }
+                nextQuestion.addEventListener("click",()=>{
+                    answerBtn.classList.remove("hidden")
+                    nextQuestion.classList.add("hidden")
+
+                    selectedLabel?.classList.remove("border-cCorrect")
+                    selectedLabel?.firstElementChild?.classList.remove("bg-cCorrect","text-white")
+                    
+
+                    selectedLabel?.classList.remove("border-cError")
+                    selectedLabel?.firstElementChild?.classList.remove("bg-cError","text-white")
+                    
+                    svgChildrenLabel[0].classList.add("hidden")
+                    svgChildrenLabel[1].classList.add("hidden")
+
+                    isAnswerCorrect(valueAllRadio,selectedQuiz,currentQuestionIndex,"add")
+
+                    // If there are more questions in the quiz, move to the next question
+                    if (currentQuestionIndex < selectedQuiz.length - 1) {
+                        currentQuestionIndex++; // Increment the current question index
+                        renderQuestion(currentQuestionIndex, selectedQuiz)!;
+                    } 
+                    // If all questions are answered, finish the quiz
+                    else {
+                        console.log("Finished all questions"); // Log that the quiz is finished
+                        console.log(score); // Log the final score
+                    }
+                })
+                
             });
         }); // End of button click event listener
     }); // End of map function

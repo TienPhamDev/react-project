@@ -7,7 +7,7 @@ import { Questions } from "./app";
  * @param {number} currentQuestionIndex - The index of the current question being rendered from the selected quiz.
  * @param {Array<Questions>} selectedQuiz - The list of questions that belong to the selected quiz.
  */
-export const renderQuestion = (divQuestions: HTMLElement, currentQuestionIndex: number, selectedQuiz: Array<Questions>): void => {
+export const renderQuestion = (currentQuestionIndex: number, selectedQuiz: Array<Questions>): void => {
     
     // Select the question header element and update it with the current question number and total (10 questions).
     const questionHeader = document.querySelector<HTMLDivElement>(".questionHeader")!;
