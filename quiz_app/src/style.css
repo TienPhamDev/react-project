@@ -57,16 +57,16 @@
   input[type="radio"]:checked + label >  span:first-child{
     @apply bg-pPurple text-white;
   }
-  span[id="HTML"]{
+  span[id="HTML"],img[id="HTML"]{
     @apply bg-[#FFF1E9];
   }
-  span[id="CSS"]{
+  span[id="CSS"],img[id="CSS"]{
     @apply bg-[#E0FDEF];
   }
-  span[id="JavaScript"]{
+  span[id="JavaScript"],img[id="JavaScript"]{
     @apply bg-[#EBF0FF];
   }
-  span[id="Accessibility"]{
+  span[id="Accessibility"],img[id="Accessibility"]{
     @apply bg-[#F6E7FF];
   }
 /* frontEndQuiz div style */

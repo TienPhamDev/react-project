@@ -135,21 +135,24 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
                 // If there are more questions in the quiz, move to the next question
                 if (currentQuestionIndex < selectedQuiz.length - 1) {
                     currentQuestionIndex += 1; // Increment the current question index
-                    console.log(currentQuestionIndex);
                     
                     renderQuestion(currentQuestionIndex, selectedQuiz)!;
                     
                 } 
                 // If all questions are answered, finish the quiz
                 else {
-                    console.log("Finished all questions"); // Log that the quiz is finished
                     divQuestions.classList.toggle("hidden")
                     const divResult = document.querySelector<HTMLDivElement>("#result")!
                     divResult.classList.toggle("hidden")
                     const resultScoreDiv = document.querySelector<HTMLDivElement>("#resultScoreDiv")!
                     const resultScoreDivChildren = resultScoreDiv.children
-                    resultScoreDivChildren[0].innerHTML=`<img src=${quiz.icon} alt=${quiz.icon}> <h3>${quiz.title}</h3>`;
+                    resultScoreDivChildren[0].innerHTML=`<img src=${quiz.icon} id=${quiz.title} alt=${quiz.title} class="rounded-lg"> <h3>${quiz.title}</h3>`;
                     resultScoreDivChildren[1].textContent = `${score}`
+
+                    const playAgainBtn = document.querySelector<HTMLButtonElement>("#playAgainBtn")!
+                    playAgainBtn.addEventListener("click",()=>{
+                        location.reload();
+                    })
                 }
             })
         }); // End of button click event listener
