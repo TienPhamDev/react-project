@@ -65,7 +65,7 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
                 const selectedRadio = document.querySelector<HTMLInputElement>("input[name='options']:checked")!;
                 const selectAllRadio = document.querySelectorAll<HTMLInputElement>("input[name='options']")
                 const valueAllRadio = [...selectAllRadio].map(node => node);
-                console.log(valueAllRadio);
+
                 
                 const errorAnswer = document.querySelector<HTMLHeadingElement>(".errorAnswer")!
                 
@@ -104,35 +104,54 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
                 answerBtn.classList.add("hidden")
                 nextQuestion.classList.remove("hidden")
 
-                nextQuestion.addEventListener("click",()=>{
-                    answerBtn.classList.remove("hidden")
-                    nextQuestion.classList.add("hidden")
 
-                    selectedLabel?.classList.remove("border-cCorrect")
-                    selectedLabel?.firstElementChild?.classList.remove("bg-cCorrect","text-white")
-                    
-
-                    selectedLabel?.classList.remove("border-cError")
-                    selectedLabel?.firstElementChild?.classList.remove("bg-cError","text-white")
-                    
-                    svgChildrenLabel[0].classList.add("hidden")
-                    svgChildrenLabel[1].classList.add("hidden")
-
-                    isAnswerCorrect(valueAllRadio,selectedQuiz,currentQuestionIndex,"add")
-
-                    // If there are more questions in the quiz, move to the next question
-                    if (currentQuestionIndex < selectedQuiz.length - 1) {
-                        currentQuestionIndex++; // Increment the current question index
-                        renderQuestion(currentQuestionIndex, selectedQuiz)!;
-                    } 
-                    // If all questions are answered, finish the quiz
-                    else {
-                        console.log("Finished all questions"); // Log that the quiz is finished
-                        console.log(score); // Log the final score
-                    }
-                })
                 
             });
+
+            nextQuestion.addEventListener("click",()=>{
+                answerBtn.classList.remove("hidden")
+                nextQuestion.classList.add("hidden")
+                
+                const allLabel =document.querySelectorAll<HTMLLabelElement>("label")
+                
+                allLabel.forEach(label =>{
+                    label?.classList.remove("border-cCorrect")
+                    label?.firstElementChild?.classList.remove("bg-cCorrect","text-white")
+                    
+    
+                    label?.classList.remove("border-cError")
+                    label?.firstElementChild?.classList.remove("bg-cError","text-white")
+                    const  labelLastChild = label.lastElementChild!
+                    labelLastChild.firstElementChild?.classList.add("hidden")
+                    labelLastChild.lastElementChild?.classList.add("hidden")
+                })
+
+                const selectAllRadio = document.querySelectorAll<HTMLInputElement>("input[name='options']")
+                const valueAllRadio = [...selectAllRadio].map(node => node);
+
+
+                isAnswerCorrect(valueAllRadio,selectedQuiz,currentQuestionIndex,"add")
+
+                // If there are more questions in the quiz, move to the next question
+                if (currentQuestionIndex < selectedQuiz.length - 1) {
+                    currentQuestionIndex += 1; // Increment the current question index
+                    console.log(currentQuestionIndex);
+                    
+                    renderQuestion(currentQuestionIndex, selectedQuiz)!;
+                    
+                } 
+                // If all questions are answered, finish the quiz
+                else {
+                    console.log("Finished all questions"); // Log that the quiz is finished
+                    divQuestions.classList.toggle("hidden")
+                    const divResult = document.querySelector<HTMLDivElement>("#result")!
+                    divResult.classList.toggle("hidden")
+                    const resultScoreDiv = document.querySelector<HTMLDivElement>("#resultScoreDiv")!
+                    const resultScoreDivChildren = resultScoreDiv.children
+                    resultScoreDivChildren[0].innerHTML=`<img src=${quiz.icon} alt=${quiz.icon}> <h3>${quiz.title}</h3>`;
+                    resultScoreDivChildren[1].textContent = `${score}`
+                }
+            })
         }); // End of button click event listener
     }); // End of map function
 };

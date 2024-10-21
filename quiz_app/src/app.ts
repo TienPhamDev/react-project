@@ -100,7 +100,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <div id="result" class="hidden">
         <h1>Quiz completed</h1>
         <h2>You scored...</h2>
-        <div id="resultScoreDiv">
+        <div id="resultScoreDiv" class="flex flex-col justify-center item-center">
+          <div></div>
+          <span></span>
+          <span>out of 10</span>
         </div>
         <button id="playAgainBtn" class="quizMainBtn">Play Again</button>
       </div>
