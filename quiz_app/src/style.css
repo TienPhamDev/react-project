@@ -24,8 +24,8 @@
     --tOption:#626C7F;
     --error:#EE5454;
     --correct:#26d782;
-    @apply bg-[url("/assets/images/pattern-background-mobile-dark.svg")] bg-bgPrimary text-tBase;
-    @apply bg-no-repeat bg-cover;
+    @apply bg-[url("/assets/images/pattern-background-mobile-dark.svg")] md:bg-[url("/assets/images/pattern-background-tablet-dark.svg")] lg:bg-[url("/assets/images/pattern-background-desktop-dark.svg")] bg-bgPrimary text-tBase;
+    @apply bg-no-repeat bg-cover md:bg-contain lg:bg-cover;
   }
   .light{
     --main-bg:#f4f6fa;
@@ -38,8 +38,8 @@
     --tOption:#626C7F;
     --error:#EE5454;
     --correct:#26d782;
-    @apply bg-[url("/assets/images/pattern-background-mobile-light.svg")] bg-bgPrimary text-tBase;
-    @apply bg-no-repeat bg-cover;
+    @apply bg-[url("/assets/images/pattern-background-mobile-light.svg")] md:bg-[url("/assets/images/pattern-background-tablet-light.svg")] lg:bg-[url("/assets/images/pattern-background-desktop-light.svg")] bg-bgPrimary text-tBase;
+    @apply bg-no-repeat bg-cover md:bg-contain lg:bg-cover;
   }
   .optionLabel{
     @apply border-[0.15rem] transition duration-300 border-bgButton px-2 py-2 flex gap-8 text-xl  items-center bg-bgButton justify-start rounded-2xl;

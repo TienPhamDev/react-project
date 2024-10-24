@@ -49,7 +49,8 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
 
             // Toggle the visibility of the questions and title
             divQuestions.classList.toggle("hidden");
-            divQuizTitle.classList.toggle("quizTitle");
+            divQuestions.classList.toggle("lg:hidden")
+            divQuizTitle.classList.toggle("lg:grid")
             divQuizTitle.classList.toggle("hidden");
 
             let score = 0; // Initialize the score to 0
@@ -101,6 +102,8 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
                     
                     isAnswerCorrect(valueAllRadio,selectedQuiz,currentQuestionIndex,"remove")
                 }
+                
+                
                 answerBtn.classList.add("hidden")
                 nextQuestion.classList.remove("hidden")
 
@@ -111,9 +114,10 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
             nextQuestion.addEventListener("click",()=>{
                 answerBtn.classList.remove("hidden")
                 nextQuestion.classList.add("hidden")
-                
+
                 const allLabel =document.querySelectorAll<HTMLLabelElement>("label")
                 
+
                 allLabel.forEach(label =>{
                     label?.classList.remove("border-cCorrect")
                     label?.firstElementChild?.classList.remove("bg-cCorrect","text-white")
@@ -142,6 +146,7 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
                 // If all questions are answered, finish the quiz
                 else {
                     divQuestions.classList.toggle("hidden")
+                    divQuestions.classList.toggle("lg:grid")
                     const divResult = document.querySelector<HTMLDivElement>("#result")!
                     divResult.classList.toggle("hidden")
                     const resultScoreDiv = document.querySelector<HTMLDivElement>("#resultScoreDiv")!

@@ -25,11 +25,11 @@ const { quizzes } = data;
 
 // Select the #app container and set the inner HTML to render the layout of the quiz application
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div class="mainDiv container px-8">
+  <div class="mainDiv container px-8 lg:px-52 mx-auto">
     <header id="header" class="flex justify-between items-center py-[2rem]">
     </header>
-    <main id="main">
-      <div id="quizTitle" class="quizTitle flex flex-col gap-10">
+    <main id="main" class="lg:mt-12">
+      <div id="quizTitle" class="quizTitle lg:grid lg:grid-cols-2 flex flex-col gap-10">
         <div class="welcome">
           <h2 class="text-[4.4rem] font-light leading-tight">Welcome to the</h2>
           <h3 class="font-bold text-[4.4rem] leading-tight">Frontend Quiz!</h3>
@@ -38,12 +38,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <div class="frontEndQuiz flex flex-col gap-4" id="frontEndQuiz">
         </div> 
       </div>
-      <div id="questions" class="hidden flex flex-col gap-8 justify-between ">
-        <div class="questionHeader h-48 flex-col flex justify-between">
+      <div id="questions" class="hidden lg:hidden lg:grid lg:gap-16 lg:grid-cols-2 flex flex-col gap-8 justify-between ">
+        <div class="questionHeader h-48 lg:h-72 flex-col flex justify-between">
           <div class="questionsNumber text-tSecondary italic ">Question 6 of 10</div>
           <p class="questionContent text-3xl text-tBase font-bold tracking-wide">Questions Here</p>
-          <div class="bg-bgButton h-[1rem] w-full flex p-[0.3rem] rounded-xl">
-            <span class="bg-pPurple w-[10%] h-full rounded-xl"></span>
+          <div id="slideQuestion" class="bg-bgButton h-[1rem] w-full flex p-[0.3rem] rounded-xl">
+            
           </div>
         </div>
         <div>
@@ -103,7 +103,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <div id="resultScoreDiv" class="flex flex-col py-[4rem] rounded-xl text-tBase bg-bgButton justify-center items-center">
           <div class="flex justify-center items-center text-[3.2rem] gap-[1rem]"></div>
           <span class="text-[5.6rem] font-bold"></span>
-          <span class="text-[2.4rem] font-light text-tSecondary">out of 10</span>
+          <span class="text-[1.6rem] font-light text-tSecondary">out of 10</span>
         </div>
         <button id="playAgainBtn" class="quizMainBtn">Play Again</button>
       </div>

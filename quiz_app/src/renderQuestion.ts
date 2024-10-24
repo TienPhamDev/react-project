@@ -11,7 +11,41 @@ export const renderQuestion = (currentQuestionIndex: number, selectedQuiz: Array
     
     // Select the question header element and update it with the current question number and total (10 questions).
     const questionHeader = document.querySelector<HTMLDivElement>(".questionHeader")!;
+    const slideQuestion = document.querySelector<HTMLDivElement>("#slideQuestion")!;
     
+    switch (currentQuestionIndex + 1) {
+        case 1:
+            slideQuestion.innerHTML=`<span class="bg-pPurple h-full w-[10%] rounde-xl"></span>`;
+            break;
+        case 2:
+            slideQuestion.innerHTML=`<span class="bg-pPurple h-full w-[20%] rounde-xl"></span>`;
+            break;
+        case 3:
+            slideQuestion.innerHTML=`<span class="bg-pPurple h-full w-[30%] rounde-xl"></span>`;
+            break;
+        case 4:
+            slideQuestion.innerHTML=`<span class="bg-pPurple h-full w-[40%] rounde-xl"></span>`;
+            break;
+        case 5:
+            slideQuestion.innerHTML=`<span class="bg-pPurple h-full w-[50%] rounde-xl"></span>`;
+            break;        
+        case 6:
+            slideQuestion.innerHTML=`<span class="bg-pPurple h-full w-[60%] rounde-xl"></span>`;
+            break;
+        case 7:
+            slideQuestion.innerHTML=`<span class="bg-pPurple h-full w-[70%] rounde-xl"></span>`;
+            break;
+        case 8:
+            slideQuestion.innerHTML=`<span class="bg-pPurple h-full w-[80%] rounde-xl"></span>`;
+            break;
+        case 9:
+            slideQuestion.innerHTML=`<span class="bg-pPurple h-full w-[90%] rounde-xl"></span>`;
+            break;
+        case 10:
+            slideQuestion.innerHTML=`<span class="bg-pPurple h-full w-[100%] rounde-xl"></span>`;
+            break;
+    }
+    slideQuestion.innerHTML=`<span class="bg-pPurple h-full w-[${(currentQuestionIndex+1)*10}%] rounde-xl"></span>`;
     // Update the question number in the first child of the questionHeader element.
     questionHeader.firstElementChild!.textContent = `Question ${currentQuestionIndex + 1} of 10`;
     
