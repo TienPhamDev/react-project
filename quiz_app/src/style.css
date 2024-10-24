@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  /* *{
+    @apply transition-colors duration-300 ease-in-out;
+  } */
+  html {
+    font-size: 62.5%; /* 1rem = 10px */
+  }
+  input[type="radio"]{
+    display: none;
+  }
+}
+@layer components{
+  .dark{
+    --main-bg:#313E51;
+    --primary-text:#f1f5f9;
+    --secondary-text:#ABC1E1;
+    
+    --btn-bg:#3B4D66;
+    --purple:#A729F5;
+    --bgOption:#fff;
+    --tOption:#626C7F;
+    --error:#EE5454;
+    --correct:#26d782;
+    @apply bg-[url("/assets/images/pattern-background-mobile-dark.svg")] md:bg-[url("/assets/images/pattern-background-tablet-dark.svg")] lg:bg-[url("/assets/images/pattern-background-desktop-dark.svg")] bg-bgPrimary text-tBase;
+    @apply bg-no-repeat bg-cover md:bg-contain lg:bg-cover;
+  }
+  .light{
+    --main-bg:#f4f6fa;
+    --primary-text:#313E51;
+    --secondary-text:#626C7F;
+    
+    --btn-bg:#fff;
+    --purple:#A729F5;
+    --bgOption:#f4f6fa;
+    --tOption:#626C7F;
+    --error:#EE5454;
+    --correct:#26d782;
+    @apply bg-[url("/assets/images/pattern-background-mobile-light.svg")] md:bg-[url("/assets/images/pattern-background-tablet-light.svg")] lg:bg-[url("/assets/images/pattern-background-desktop-light.svg")] bg-bgPrimary text-tBase;
+    @apply bg-no-repeat bg-cover md:bg-contain lg:bg-cover;
+  }
+  .optionLabel{
+    @apply border-[0.15rem] transition duration-300 border-bgButton px-2 py-2 flex gap-8 text-xl  items-center bg-bgButton justify-start rounded-2xl;
+  }
+  .letterSpan{
+    @apply px-4 py-2 transition duration-300 bg-bgOption rounded-lg text-tOption font-bold ;
+  }
+  .quizMainBtn{
+    @apply bg-pPurple text-white font-bold w-full my-8 p-6 text-2xl rounded-3xl tracking-wider;
+  }
+  
+  input[type="radio"]:checked + label {
+    @apply border-pPurple;
+  }
+  input[type="radio"]:checked + label >  span:first-child{
+    @apply bg-pPurple text-white;
+  }
+  span[id="HTML"],img[id="HTML"]{
+    @apply bg-[#FFF1E9];
+  }
+  span[id="CSS"],img[id="CSS"]{
+    @apply bg-[#E0FDEF];
+  }
+  span[id="JavaScript"],img[id="JavaScript"]{
+    @apply bg-[#EBF0FF];
+  }
+  span[id="Accessibility"],img[id="Accessibility"]{
+    @apply bg-[#F6E7FF];
+  }
+/* frontEndQuiz div style */
+
+.frontEndQuiz button{
+  @apply flex justify-start items-center gap-4 text-lg bg-bgButton p-2 rounded-[1.2rem];
+}
+.frontEndQuiz button span:first-child{
+  @apply rounded-xl;
+}
+
+}
+
+
+
