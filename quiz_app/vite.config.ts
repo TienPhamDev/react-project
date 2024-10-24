@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react';  // Or your framework plugin
 
 export default defineConfig({
   plugins: [react()],
-  base: '/REPOSITORY_NAME/',  // replace with your GitHub repository name
+  base: '/quiz_app/',  // Replace with your GitHub repository name
 });
