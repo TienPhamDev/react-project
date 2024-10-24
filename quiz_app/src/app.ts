@@ -39,7 +39,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </div> 
       </div>
       <div id="questions" class="hidden lg:hidden lg:grid lg:gap-16 lg:grid-cols-2 flex flex-col gap-8 justify-between ">
-        <div class="questionHeader h-48 lg:h-72 flex-col flex justify-between">
+        <div class="questionHeader h-48 lg:h-96 flex-col flex justify-between">
           <div class="questionsNumber text-tSecondary italic ">Question 6 of 10</div>
           <p class="questionContent text-3xl text-tBase font-bold tracking-wide">Questions Here</p>
           <div id="slideQuestion" class="bg-bgButton h-[1rem] w-full flex p-[0.3rem] rounded-xl">
@@ -97,15 +97,19 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </h5>
         </div>
       </div>
-      <div id="result" class="hidden">
-        <h1 class="text-[4.4rem] leading-tight">Quiz completed</h1>
-        <h2 class="text-[4.4rem] leading-tight font-bold mb-[1.2rem] ">You scored...</h2>
-        <div id="resultScoreDiv" class="flex flex-col py-[4rem] rounded-xl text-tBase bg-bgButton justify-center items-center">
-          <div class="flex justify-center items-center text-[3.2rem] gap-[1rem]"></div>
-          <span class="text-[5.6rem] font-bold"></span>
-          <span class="text-[1.6rem] font-light text-tSecondary">out of 10</span>
+      <div id="result" class="hidden lg:grid-cols-2">
+        <div>
+          <h1 class="text-[4.4rem] leading-tight">Quiz completed</h1>
+          <h2 class="text-[4.4rem] leading-tight font-bold mb-[1.2rem] ">You scored...</h2>
         </div>
-        <button id="playAgainBtn" class="quizMainBtn">Play Again</button>
+        <div>
+          <div id="resultScoreDiv" class="flex flex-col py-[4rem] rounded-xl text-tBase bg-bgButton justify-center items-center">
+            <div class="flex justify-center items-center text-[3.2rem] gap-[1rem]"></div>
+            <span class="text-[5.6rem] font-bold"></span>
+            <span class="text-[1.6rem] font-light text-tSecondary">out of 10</span>
+          </div>
+          <button id="playAgainBtn" class="quizMainBtn">Play Again</button>
+        </div>
       </div>
     </main>
   </div>

@@ -149,6 +149,7 @@ export const renderQuizList = (element: HTMLElement, dataQuizzes: Array<Quizzes>
                     divQuestions.classList.toggle("lg:grid")
                     const divResult = document.querySelector<HTMLDivElement>("#result")!
                     divResult.classList.toggle("hidden")
+                    divResult.classList.toggle("lg:grid")
                     const resultScoreDiv = document.querySelector<HTMLDivElement>("#resultScoreDiv")!
                     const resultScoreDivChildren = resultScoreDiv.children
                     resultScoreDivChildren[0].innerHTML=`<img src=${quiz.icon} id=${quiz.title} alt=${quiz.title} class="rounded-lg"> <h3>${quiz.title}</h3>`;
