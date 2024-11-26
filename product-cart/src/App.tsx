@@ -17,9 +17,20 @@ function App() {
       "name":name,
       "thumbnail":thumbnail,
       "price": price,
-      "quantity": quantity + 1
+      "quantity": quantity
     } 
-    setCart([...cart,product])
+    setCart((prevCart) => {
+      const existCart = cart.find((item)=> item.name === product.name)
+      if (existCart){
+        return prevCart.map((item)=> {
+          return item.name === product.name ? { ...item, quantity: item.quantity + 1 }
+          : item
+        })
+      } else {
+        return [...prevCart, { name, price, quantity: quantity + 1 }];
+      }
+
+    })
   }
   return (
     <main className='p-4'>
