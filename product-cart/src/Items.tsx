@@ -1,3 +1,8 @@
+import { useState } from "react"
+import CartSVG from "./svgUI/CartSVG"
+import DecrementSVG from "./svgUI/decrementSVG"
+import IncrementSVG from "./svgUI/IncrementSVG"
+
 interface Items {
     image : {
         thumbnail: string
@@ -8,16 +13,41 @@ interface Items {
     name:string
     category:string
     price:number
+    addToCart:(name:string,thumbnail:string,price:number,quantity:number)=>void
 }
-function Items({image,name,category,price} : Items) {
+function Items({image,name,category,price,addToCart} : Items) {
+    
+    
+    const [quantity,setQuantity] = useState(0);
+    const handleDecreQuantity = () :void =>{
+        quantity === 0 ? setQuantity(0) : setQuantity(quantity - 1) 
+    }
+    const handleIncreQuantity = () :void =>{
+        setQuantity(quantity + 1)
+        
+    }
+    const addClickToCart=()=>{
+        handleIncreQuantity()
+        addToCart(name,image.thumbnail,price,quantity)
+    }
     return (<section className="rounded-lg mb-8" >
         <div className="relative">
             <img src={image.mobile} alt={name} className="w-full h-54 rounded-md object-cover mb-4" />
             <div className="absolute bottom-[-9%] translate-x-[-50%] left-[50%] ">
-                <button className="px-4 py-2 rounded-[30px] bg-white border-[1px] border-[#C73B0F] w-44 flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
+                {quantity === 0 ? <button onClick={addClickToCart} className="px-4 py-2 rounded-[30px] bg-white border-[1px] border-[#C73B0F] w-44 flex items-center justify-center gap-2">
+                    <CartSVG/>
                     Add to Cart
                 </button>
+                :
+                <div className="bg-[#C73B0F] px-4 py-2 w-44 flex justify-between rounded-[30px]">
+                    <button onClick={handleDecreQuantity} className="p-1 border-[1px] border-white rounded-[100%]">
+                        <DecrementSVG/>
+                    </button>
+                    <span className="text-white">{quantity}</span>
+                    <button onClick={handleIncreQuantity} className="p-1 border-[1px] border-white rounded-[100%]">
+                        <IncrementSVG/>
+                    </button>
+                </div>}
             </div>
         </div>
         <div className="my-10">
@@ -25,7 +55,6 @@ function Items({image,name,category,price} : Items) {
           <p className="text-lg font-semibold">{name}</p>
           <p className="text-orange-700">{price}</p>
         </div>
-        
       </section>);
 }
 
