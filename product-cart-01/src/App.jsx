@@ -2,18 +2,13 @@ import { useState } from 'react'
 import './App.css';
 import Cart from './Cart';
 import Products from './Products';
-interface CartItem {
-  name:string
-  thumbnail : string
-  price : number
-  quantity:number
-}
+
 function App() {
   
-  const [cart,setCart] = useState<CartItem[]>([]);
+  const [cart,setCart] = useState([]);
   
-  const handleAddToCart = (name:string,thumbnail:string,price:number,quantity:number):void => {
-    const product: CartItem={
+  const handleAddToCart = (name,thumbnail,price,quantity) => {
+    const product={
       "name":name,
       "thumbnail":thumbnail,
       "price": price,

@@ -3,26 +3,14 @@ import CartSVG from "./svgUI/CartSVG"
 import DecrementSVG from "./svgUI/decrementSVG"
 import IncrementSVG from "./svgUI/IncrementSVG"
 
-interface Items {
-    image : {
-        thumbnail: string
-        mobile : string
-        tablet : string
-        desktop : string
-    }
-    name:string
-    category:string
-    price:number
-    addToCart:(name:string,thumbnail:string,price:number,quantity:number)=>void
-}
-function Items({image,name,category,price,addToCart} : Items) {
+function Items({image,name,category,price,addToCart} ) {
     
     
     const [quantity,setQuantity] = useState(0);
-    const handleDecreQuantity = () :void =>{
+    const handleDecreQuantity = () =>{
         quantity === 0 ? setQuantity(0) : setQuantity(quantity - 1) 
     }
-    const handleIncreQuantity = () :void =>{
+    const handleIncreQuantity = () =>{
         setQuantity(quantity + 1)
         
     }
