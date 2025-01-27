@@ -15,8 +15,11 @@ function Items({image,name,category,price,addToCart} ) {
         
     }
     const addClickToCart=()=>{
-        handleIncreQuantity()
-        addToCart(name,image.thumbnail,price,quantity)
+        if (quantity === 0){
+            setQuantity(quantity + 1)
+            addToCart(name,image.thumbnail,price,quantity)
+
+        }
     }
     return (<section className="rounded-lg mb-8" >
         <div className="relative">

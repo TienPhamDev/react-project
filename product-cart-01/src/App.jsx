@@ -7,22 +7,22 @@ function App() {
   
   const [cart,setCart] = useState([]);
   
-  const handleAddToCart = (name,thumbnail,price,quantity) => {
-    const product={
-      "name":name,
-      "thumbnail":thumbnail,
-      "price": price,
-      "quantity": quantity
-    } 
+  const handleAddToCart = (name,thumbnail,price,newQuantity) => {
+    // const product={
+    //   "name":name,
+    //   "thumbnail":thumbnail,
+    //   "price": price,
+    //   "quantity": quantity
+    // } 
     setCart((prevCart) => {
-      const existCart = cart.find((item)=> item.name === product.name)
+      const existCart = cart.find((item)=> item.name === name)
       if (existCart){
         return prevCart.map((item)=> {
-          return item.name === product.name ? { ...item, quantity: item.quantity + 1 }
+          return item.name === name ? { ...item, quantity: item.quantity + newQuantity }
           : item
         })
       } else {
-        return [...prevCart, { name, price, quantity: quantity + 1 }];
+        return [...prevCart, { name, thumbnail,price, quantity: newQuantity}];
       }
 
     })

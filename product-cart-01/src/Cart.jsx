@@ -1,6 +1,6 @@
 import CarbonSVG from "./svgUI/CarbonSVG";
 import EmptyCartSVG from "./svgUI/EmptyCartSVG";
-
+import { nanoid } from "nanoid";
 function Cart({cart}) {
     return ( <section className="bg-white rounded-lg shadow-md px-6 py-8 mt-8 max-w-md mx-auto">
         { cart.length === 0 ? <div className="flex flex-col justify-center items-center">
@@ -12,7 +12,7 @@ function Cart({cart}) {
             <h2 className="text-3xl font-bold text-orange-700">Your Cart (0)</h2>
             {
                 cart.map((item) => {
-                    return <div>
+                    return <div key={nanoid()}>
                         <div className="py-8 border-b-[1px] border-slate-900/10 flex justify-between items-center">
                             <div>
                                 <h3 className="font-semibold"></h3>
